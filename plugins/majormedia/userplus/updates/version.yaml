@@ -1,0 +1,10 @@
+1.0.1: First version of UserPlus
+1.0.2:
+  - "Created table roles"
+  - create_roles_table.php
+1.0.3:
+  - "Add New Fields to Users Table"
+  - add_new_fields_to_users_table.php
+1.0.4:
+  - "Seed table roles"
+  - seed_roles_table.php

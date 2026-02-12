@@ -1,0 +1,33 @@
+<form data-request="onGenerateStatementWithMonth"
+    data-request-success="$.oc.flashMsg({ text: 'Relevé généré avec succès.', class: 'success' }); $.oc.popup.hide();"
+    data-request-complete="$.oc.popup.hide();"
+    data-request-progress-bar="false"
+    data-request-error="$.oc.flashMsg({ text: 'Erreur lors de la génération.', class: 'error' });">
+    <input type="hidden" name="listing_id" value="<?= $listing->id ?>" />
+
+    <div class="modal-header">
+        <h4 class="modal-title">Sélectionner le mois</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="month">Mois</label>
+            <select class="form-control" name="month" required>
+                <option value="">-- Choisir un mois --</option>
+                <?php
+                            $monthsFr = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+                            foreach ($monthsFr as $index => $monthName):
+                                $m = $index + 1;
+                            ?>
+                <option value="<?= $m ?>">
+                    <?= $monthName ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+            
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Générer</button>
+        <button type="button" class="btn btn-default" data-dismiss="popup">Annuler</button>
+    </div>
+</form>

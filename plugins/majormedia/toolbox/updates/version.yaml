@@ -1,0 +1,60 @@
+1.0.1:
+    - "Initialize plugin."
+1.0.2:
+    - "Set common settings"
+    - seedCommonSettings.php
+1.0.3:
+    - "Add Guzzle/Http package"
+1.0.4:
+    - "!!! Fixe bug: Trait CustomSettings not found"
+1.1.1:
+    - "Created table tools_countries"
+    - builder_table_create_toolbox_countries.php
+1.1.2:
+    - "Created table tools_states"
+    - builder_table_create_toolbox_states.php
+1.1.3:
+    - "Created table tools_cities"
+    - builder_table_create_toolbox_cities.php
+1.1.4:
+    - "Seed data : cities, states, countries"
+    - seed_all_tables.php
+1.1.5:
+    - "Created table majormedia_toolbox_mailview"
+    - builder_table_create_majormedia_toolbox_mailview.php
+1.1.6:
+    - "Created table majormedia_toolbox_messages"
+    - builder_table_create_majormedia_toolbox_messages.php
+1.1.7:
+    - "Created table majormedia_toolbox_newsletters"
+    - builder_table_create_majormedia_toolbox_newsletters.php
+1.1.8:
+    - 'Add "is_noticed" on majormedia_newsletters'
+    - add_new_fieldis_noticed_on_newsletters_table.php
+1.1.9:
+    - "Seeder for Mail Templates"
+    - seed_mail_templates_table.php
+1.1.10:
+    - "Created table majormedia_toolbox_newsletters_categories"
+    - builder_table_create_majormedia_toolbox_newsletters_categories.php
+1.1.11:
+    - "Created table majormedia_toolbox_newsletters_category_newsletter"
+    - builder_table_create_majormedia_toolbox_newsletters_category_newsletter.php
+1.1.12:
+    - "Updated table majormedia_toolbox_cities"
+    - builder_table_update_majormedia_toolbox_cities.php
+1.1.13:
+    - "Created table roles"
+    - create_roles_table.php
+1.1.14:
+    - "Seed table roles"
+    - seed_roles_table.php
+1.1.15:
+    - "add user_id to messages"
+    - add_user_id_to_majormedia_toolbox_messages_table.php
+1.1.16:
+    - "add new cities"
+    - seed_cities.php
+1.0.17:
+    - "Change Column User Id In Messages Table"
+    - change_column_user_id_in_messages_table.php

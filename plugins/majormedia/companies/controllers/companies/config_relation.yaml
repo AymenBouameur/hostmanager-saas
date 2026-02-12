@@ -1,0 +1,7 @@
+listings:
+    label: Listings
+    view:
+        list: $/majormedia/listings/models/listing/columns.yaml
+    manage:
+        list: $/majormedia/listings/models/listing/columns.yaml
+        form: $/majormedia/listings/models/listing/fields.yaml

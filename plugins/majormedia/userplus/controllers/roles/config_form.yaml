@@ -1,0 +1,10 @@
+name: Roles
+form: $/majormedia/userplus/models/role/fields.yaml
+modelClass: Majormedia\UserPlus\Models\Role
+defaultRedirect: majormedia/userplus/roles
+create:
+    redirect: 'majormedia/userplus/roles/update/:id'
+    redirectClose: majormedia/userplus/roles
+update:
+    redirect: majormedia/userplus/roles
+    redirectClose: majormedia/userplus/roles

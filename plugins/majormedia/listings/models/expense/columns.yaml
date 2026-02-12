@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: ID
+        type: text
+    listing:
+        label: Propriété
+        relation: listing
+        select: title
+    label:
+        label: Libellé
+        type: text
+    amount:
+        label: Montant
+        type: text
+        min: 0
+    expenses_type_alias:
+        label: Type de dépense
+        type: text
+    processed_at:
+        label: Date de traitement
+        type: text
+    regenerated_statement:
+        label: Relevé régénéré
+        type: partial
+        path: $/majormedia/listings/controllers/expenses/_regenerated_statement.htm

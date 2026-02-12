@@ -1,0 +1,12 @@
+list: $/majormedia/billing/models/subscription/columns.yaml
+modelClass: MajorMedia\Billing\Models\Subscription
+title: Subscriptions
+noRecordsMessage: "backend::lang.list.no_records"
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: "backend::lang.list.search_prompt"
+recordUrl: "majormedia/billing/subscriptions/update/:id"

@@ -1,0 +1,15 @@
+cities:
+  label: Ville
+  view:
+    list: $/majormedia/toolbox/models/city/columns.yaml
+    toolbarButtons: create|remove|link|unlink
+    showSearch: true
+    showSorting: true
+    recordsPerPage: 25
+  manage:
+    list: $/majormedia/toolbox/models/city/columns.yaml
+    form: $/majormedia/toolbox/models/city/fields.yaml
+    showSearch: true
+    showSorting: true
+    recordsPerPage: 25
+  deferredBinding: true

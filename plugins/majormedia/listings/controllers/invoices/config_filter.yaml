@@ -1,0 +1,6 @@
+scopes:
+    listing:
+        label: Propriétaire
+        modelClass: MajorMedia\Listings\Models\Listing
+        conditions: listing_id in (:value)
+        nameFrom: title

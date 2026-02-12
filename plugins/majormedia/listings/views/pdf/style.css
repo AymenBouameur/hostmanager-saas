@@ -1,0 +1,26 @@
+
+
+    header {
+     
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0;
+        height: 70px;
+        max-width: 100%;
+        /* margin-top: -60px; */
+
+    }
+
+ 
+    footer {
+ 
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        bottom: 0;
+        height: 70px;
+        max-width: 100%;
+        /* margin-bottom: -50px; */
+    }
+

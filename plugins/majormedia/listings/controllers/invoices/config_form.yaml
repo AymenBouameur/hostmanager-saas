@@ -1,0 +1,10 @@
+name: Invoices
+form: $/majormedia/listings/models/invoice/fields.yaml
+modelClass: MajorMedia\Listings\Models\Invoice
+defaultRedirect: majormedia/listings/invoices
+create:
+    redirect: 'majormedia/listings/invoices/update/:id'
+    redirectClose: majormedia/listings/invoices
+update:
+    redirect: majormedia/listings/invoices
+    redirectClose: majormedia/listings/invoices

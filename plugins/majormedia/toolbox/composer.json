@@ -1,0 +1,37 @@
+{
+    "name": "majormedia/toolbox-plugin",
+    "type": "october-plugin",
+    "description": "Mega Tools plugin",
+    "keywords": [
+        "october",
+        "cms",
+        "toolbox",
+        "tools",
+        "dev ops",
+        "plugin"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MajorMedia",
+            "email": "contact@majormedia.com",
+            "role": "Founder"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "composer/installers": "~1.0",
+        "google/recaptcha": "^1.2",
+        "staudenmeir/eloquent-param-limit-fix": "^1.1",
+        "phpoffice/phpspreadsheet": "^1.17",
+        "simonbackx/slack-php-webhook": "^1.0",
+        "intervention/image": "^2.6",
+        "php-ffmpeg/php-ffmpeg": "^0.18.0",
+        "stripe/stripe-php": "^12.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

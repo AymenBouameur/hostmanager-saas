@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Message
+
+# Model Form Field configuration
+form: $/majormedia/toolbox/models/message/fields.yaml
+
+# Model Class name
+modelClass: MajorMedia\ToolBox\Models\Message
+
+# Default redirect location
+defaultRedirect: majormedia/toolbox/messages
+
+# Create page
+create:
+  title: Create Message
+  redirect: majormedia/toolbox/messages/update/:id
+  redirectClose: majormedia/toolbox/messages
+
+# Update page
+update:
+  title: Edit Message
+  redirect: majormedia/toolbox/messages
+  redirectClose: majormedia/toolbox/messages
+
+# Preview page
+preview:
+  title: Preview Message

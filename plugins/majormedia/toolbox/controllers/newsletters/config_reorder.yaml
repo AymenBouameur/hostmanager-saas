@@ -1,0 +1,4 @@
+title: Newsletters
+modelClass: MajorMedia\ToolBox\Models\Newsletter
+toolbar:
+  buttons: reorder_toolbar

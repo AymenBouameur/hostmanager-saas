@@ -1,0 +1,6 @@
+plugin:
+    name: 'majormedia.userplus::lang.plugin.name'
+    description: 'majormedia.userplus::lang.plugin.description'
+    author: '@MEGALOGI'
+    icon: oc-icon-plus
+    homepage: ''

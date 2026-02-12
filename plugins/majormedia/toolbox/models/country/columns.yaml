@@ -1,0 +1,35 @@
+columns:
+    id:
+        label: '#'
+        type: number
+        searchable: true
+        sortable: true
+    name:
+        label: Nom
+        type: text
+        searchable: true
+        invisible: false
+        sortable: true
+    code:
+        label: Code
+        type: text
+        searchable: true
+        sortable: true
+    is_active:
+        label: Activé
+        type: switch
+        sortable: true
+    is_pinned:
+        label: 'Mise en avant'
+        type: switch
+        sortable: true
+    created_at:
+        label: 'Créé le'
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: 'Modifié le'
+        type: datetime
+        invisible: true
+        sortable: true

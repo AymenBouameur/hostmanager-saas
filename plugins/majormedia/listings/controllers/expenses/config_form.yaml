@@ -1,0 +1,10 @@
+name: Expenses
+form: $/majormedia/listings/models/expense/fields.yaml
+modelClass: MajorMedia\Listings\Models\Expense
+defaultRedirect: majormedia/listings/expenses
+create:
+    redirect: 'majormedia/listings/expenses/update/:id'
+    redirectClose: majormedia/listings/expenses
+update:
+    redirect: majormedia/listings/expenses
+    redirectClose: majormedia/listings/expenses

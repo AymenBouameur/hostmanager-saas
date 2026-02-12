@@ -1,0 +1,10 @@
+name: Payment Methods
+form: $/majormedia/billing/models/paymentmethod/fields.yaml
+modelClass: MajorMedia\Billing\Models\PaymentMethod
+defaultRedirect: majormedia/billing/paymentmethods
+create:
+    redirect: "majormedia/billing/paymentmethods/update/:id"
+    redirectClose: majormedia/billing/paymentmethods
+update:
+    redirect: majormedia/billing/paymentmethods
+    redirectClose: majormedia/billing/paymentmethods

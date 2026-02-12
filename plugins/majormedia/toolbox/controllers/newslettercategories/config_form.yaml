@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Catégorie
+
+# Model Form Field configuration
+form: $/majormedia/toolbox/models/newslettercategory/fields.yaml
+
+# Model Class name
+modelClass: MajorMedia\ToolBox\Models\NewsletterCategory
+
+# Default redirect location
+defaultRedirect: majormedia/toolbox/newslettercategories
+
+# Create page
+create:
+  title: Créer une Catégorie
+  redirect: majormedia/toolbox/newslettercategories/update/:id
+  redirectClose: majormedia/toolbox/newslettercategories
+
+# Update page
+update:
+  title: Prévisualiser une Catégorie
+  redirect: majormedia/toolbox/newslettercategories
+  redirectClose: majormedia/toolbox/newslettercategories
+
+# Preview page
+preview:
+  title: Preview Newsletter Category

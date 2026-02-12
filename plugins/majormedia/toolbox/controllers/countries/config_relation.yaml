@@ -1,0 +1,15 @@
+states:
+  label: Région
+  view:
+    list: $/majormedia/toolbox/models/state/columns.yaml
+    toolbarButtons: create|remove|link|unlink
+    showSearch: true
+    showSorting: true
+    recordsPerPage: 25
+  manage:
+    list: $/majormedia/toolbox/models/state/columns.yaml
+    form: $/majormedia/toolbox/models/state/fields.yaml
+    showSearch: true
+    showSorting: true
+    recordsPerPage: 25
+  deferredBinding: true

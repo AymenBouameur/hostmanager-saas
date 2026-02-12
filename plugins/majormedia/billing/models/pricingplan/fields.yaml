@@ -1,0 +1,75 @@
+fields:
+    name:
+        label: Name
+        type: text
+        span: row
+        cssClass: col-lg-4
+    slug:
+        label: Slug
+        type: text
+        span: row
+        cssClass: col-lg-4
+        preset:
+            field: name
+            type: slug
+    description:
+        label: Description
+        type: textarea
+        size: small
+        span: row
+        cssClass: col-lg-4
+    max_listings:
+        label: Max Listings
+        type: number
+        span: row
+        cssClass: col-lg-3
+        comment: "Leave empty for unlimited"
+    max_rooms:
+        label: Max Rooms
+        type: number
+        span: row
+        cssClass: col-lg-3
+        comment: "Leave empty for unlimited"
+    max_users:
+        label: Max Users (Team)
+        type: number
+        span: row
+        cssClass: col-lg-3
+        comment: "Leave empty for unlimited"
+    support_level:
+        label: Support Level
+        type: dropdown
+        span: row
+        cssClass: col-lg-3
+        options:
+            1: Basic
+            2: Priority
+            3: Dedicated
+    monthly_price:
+        label: Monthly Price
+        type: number
+        span: row
+        cssClass: col-lg-3
+    annual_price:
+        label: Annual Price
+        type: number
+        span: row
+        cssClass: col-lg-3
+    trial_days:
+        label: Trial Days
+        type: number
+        span: row
+        cssClass: col-lg-3
+        default: 0
+    is_active:
+        label: Active
+        type: switch
+        span: row
+        cssClass: col-lg-2
+        default: 1
+    is_pinned:
+        label: Pinned
+        type: switch
+        span: row
+        cssClass: col-lg-1
+        default: 0

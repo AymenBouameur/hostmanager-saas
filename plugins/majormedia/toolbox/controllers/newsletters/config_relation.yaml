@@ -1,0 +1,12 @@
+newsletter_categories:
+  label: Catégories
+  view:
+    list: $/majormedia/toolbox/models/newslettercategory/columns.yaml
+    toolbarButtons: unlink|link|create
+    showSearch: true
+    recordsPerPage: '25'
+  manage:
+    form: $/majormedia/toolbox/models/newslettercategory/fields.yaml
+    list: $/majormedia/toolbox/models/newslettercategory/columns.yaml
+    showSearch: true
+    recordsPerPage: '25'

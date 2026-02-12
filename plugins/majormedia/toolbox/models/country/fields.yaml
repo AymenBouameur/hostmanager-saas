@@ -1,0 +1,22 @@
+fields:
+    name:
+        label: Nom
+        span: auto
+        type: text
+    code:
+        label: Code
+        span: auto
+        type: text
+    is_active:
+        label: Activé
+        span: auto
+        default: 1
+        on: Oui
+        off: Non
+        type: switch
+    is_pinned:
+        label: 'Mise en avant'
+        span: auto
+        on: Oui
+        off: Non
+        type: switch

@@ -1,0 +1,6 @@
+scopes:
+    user:
+        label: Propriétaire
+        modelClass: RainLab\User\Models\User
+        conditions: user_id in (:value)
+        nameFrom: email

@@ -1,0 +1,64 @@
+fields:
+    name:
+        label: Name
+        type: text
+        span: row
+        cssClass: col-lg-4
+    email:
+        label: Email
+        type: text
+        span: row
+        cssClass: col-lg-4
+    phone:
+        label: Phone
+        type: text
+        span: row
+        cssClass: col-lg-4
+    address:
+        label: Address
+        type: textarea
+        size: small
+        span: row
+        cssClass: col-lg-6
+    city:
+        label: City
+        type: relation
+        nameFrom: name
+        span: row
+        cssClass: col-lg-3
+    tax_id:
+        label: Tax ID (SIRET/TVA)
+        type: text
+        span: row
+        cssClass: col-lg-3
+    website:
+        label: Website
+        type: text
+        span: row
+        cssClass: col-lg-4
+    logo:
+        label: Logo
+        type: fileupload
+        mode: image
+        span: row
+        cssClass: col-lg-4
+    is_active:
+        label: Active
+        type: switch
+        span: row
+        cssClass: col-lg-2
+        default: 1
+    is_pinned:
+        label: Pinned
+        type: switch
+        span: row
+        cssClass: col-lg-2
+        default: 0
+
+tabs:
+    fields:
+        listings:
+            label: Listings
+            type: partial
+            path: $/majormedia/companies/controllers/companies/_listings.htm
+            tab: Listings

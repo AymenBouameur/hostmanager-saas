@@ -1,0 +1,227 @@
+<div class="tab-revenue">
+    <!-- Revenue Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-2">
+            <div class="stat-card success">
+                <div class="stat-icon"><i class="icon-euro"></i></div>
+                <div class="stat-value"><?= $revenue['gross_revenue']['formatted'] ?></div>
+                <div class="stat-label">Revenu brut</div>
+                <div class="stat-evolution <?= $revenue['gross_revenue']['trend'] ?>">
+                    <?= $revenue['gross_revenue']['evolution'] >= 0 ? '+' : '' ?><?= $revenue['gross_revenue']['evolution'] ?>%
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="stat-card info">
+                <div class="stat-icon"><i class="icon-minus-circle"></i></div>
+                <div class="stat-value"><?= $revenue['net_revenue']['formatted'] ?></div>
+                <div class="stat-label">Revenu net</div>
+                <div class="stat-evolution <?= $revenue['net_revenue']['trend'] ?>">
+                    <?= $revenue['net_revenue']['evolution'] >= 0 ? '+' : '' ?><?= $revenue['net_revenue']['evolution'] ?>%
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="icon-user"></i></div>
+                <div class="stat-value"><?= $revenue['owner_profit']['formatted'] ?></div>
+                <div class="stat-label">Profit propriétaire</div>
+                <div class="stat-evolution <?= $revenue['owner_profit']['trend'] ?>">
+                    <?= $revenue['owner_profit']['evolution'] >= 0 ? '+' : '' ?><?= $revenue['owner_profit']['evolution'] ?>%
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="stat-card warning">
+                <div class="stat-icon"><i class="icon-percent"></i></div>
+                <div class="stat-value"><?= $revenue['total_commissions']['formatted'] ?></div>
+                <div class="stat-label">Commissions</div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="icon-broom"></i></div>
+                <div class="stat-value"><?= $revenue['cleaning_fees']['formatted'] ?></div>
+                <div class="stat-label">Frais ménage</div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="stat-card danger">
+                <div class="stat-icon"><i class="icon-file-text-o"></i></div>
+                <div class="stat-value"><?= $revenue['taxes_collected']['formatted'] ?></div>
+                <div class="stat-label">Taxes collectées</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Monthly Revenue Chart -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-bar-chart"></i> Revenus mensuels <?= date('Y') ?></h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 300px; position: relative;">
+                        <canvas id="monthlyRevenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Commission Breakdown -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-pie-chart"></i> Répartition des commissions</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 200px; position: relative;">
+                        <canvas id="commissionPieChart"></canvas>
+                    </div>
+                    <ul class="quick-stats-list mt-3">
+                        <li>
+                            <span class="stat-label">Commission Vacaloc</span>
+                            <span class="stat-value"><?= $revenue['vacaloc_commission']['formatted'] ?></span>
+                        </li>
+                        <li>
+                            <span class="stat-label">Commission OTA</span>
+                            <span class="stat-value"><?= $revenue['ota_commission']['formatted'] ?></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Revenue by Channel -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-share-alt"></i> Revenus par canal</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Canal</th>
+                                <th class="text-right">Revenus</th>
+                                <th class="text-right">Réservations</th>
+                                <th class="text-right">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($revenue['revenue_by_channel'] as $channel): ?>
+                            <tr>
+                                <td><strong><?= e($channel['channel']) ?></strong></td>
+                                <td class="text-right"><?= $channel['revenue_formatted'] ?></td>
+                                <td class="text-right"><?= $channel['bookings'] ?></td>
+                                <td class="text-right">
+                                    <span class="badge badge-primary"><?= $channel['percentage'] ?>%</span>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue by Property -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-home"></i> Revenus par bien (Top 10)</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bien</th>
+                                <th class="text-right">Revenus</th>
+                                <th class="text-right">Résa.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($revenue['revenue_by_property'] as $index => $property): ?>
+                            <tr>
+                                <td><span class="rank-badge"><?= $index + 1 ?></span></td>
+                                <td><?= e($property['title']) ?></td>
+                                <td class="text-right"><strong><?= $property['revenue_formatted'] ?></strong></td>
+                                <td class="text-right"><?= $property['bookings'] ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($revenue['revenue_by_property'])): ?>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">Aucune donnée disponible</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Monthly Revenue Chart
+    var monthlyCtx = document.getElementById('monthlyRevenueChart');
+    if (monthlyCtx) {
+        var monthlyData = <?= json_encode($chartData['monthly'] ?? []) ?>;
+        var monthlyRevenueChart = new Chart(monthlyCtx, {
+            type: 'bar',
+            data: {
+                labels: monthlyData.map(d => d.label),
+                datasets: [{
+                    label: 'Revenus (€)',
+                    data: monthlyData.map(d => d.revenue),
+                    backgroundColor: '#27ae60',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('monthlyRevenueChart', monthlyRevenueChart);
+    }
+
+    // Commission Pie Chart
+    var commissionCtx = document.getElementById('commissionPieChart');
+    if (commissionCtx) {
+        var commissionData = <?= json_encode([
+            ['label' => 'Vacaloc', 'value' => $revenue['vacaloc_commission']['value'] ?? 0],
+            ['label' => 'OTA', 'value' => $revenue['ota_commission']['value'] ?? 0]
+        ]) ?>;
+        var commissionPieChart = new Chart(commissionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: commissionData.map(d => d.label),
+                datasets: [{
+                    data: commissionData.map(d => d.value),
+                    backgroundColor: ['#3498db', '#e74c3c']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('commissionPieChart', commissionPieChart);
+    }
+})();
+</script>

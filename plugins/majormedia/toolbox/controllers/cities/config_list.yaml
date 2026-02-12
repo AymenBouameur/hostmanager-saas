@@ -1,0 +1,12 @@
+list: $/majormedia/toolbox/models/city/columns.yaml
+modelClass: MajorMedia\ToolBox\Models\City
+title: Cities
+noRecordsMessage: "backend::lang.list.no_records"
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+  buttons: list_toolbar
+  search:
+    prompt: "backend::lang.list.search_prompt"
+recordUrl: "majormedia/toolbox/cities/update/:id"

@@ -1,0 +1,34 @@
+columns:
+    id:
+        label: ID
+        type: text
+    company:
+        label: Company
+        type: text
+        relation: company
+        select: name
+        searchable: true
+    pricing_plan:
+        label: Plan
+        type: text
+        relation: pricing_plan
+        select: name
+        searchable: true
+    status:
+        label: Status
+        type: text
+    billing_cycle:
+        label: Cycle
+        type: text
+    starts_at:
+        label: Starts
+        type: datetime
+    ends_at:
+        label: Ends
+        type: datetime
+    next_billing_date:
+        label: Next Billing
+        type: datetime
+    created_at:
+        label: Created
+        type: datetime

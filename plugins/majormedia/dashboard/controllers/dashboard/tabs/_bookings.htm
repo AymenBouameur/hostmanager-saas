@@ -1,0 +1,259 @@
+<div class="tab-bookings">
+    <!-- Bookings Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="stat-card info">
+                <div class="stat-icon"><i class="icon-bed"></i></div>
+                <div class="stat-value"><?= $bookings['avg_stay_duration']['value'] ?></div>
+                <div class="stat-label">Durée moy. (nuits)</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card success">
+                <div class="stat-icon"><i class="icon-check-circle"></i></div>
+                <div class="stat-value"><?= $bookings['cancellation_analysis']['confirmed'] ?></div>
+                <div class="stat-label">Confirmées</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card danger">
+                <div class="stat-icon"><i class="icon-times-circle"></i></div>
+                <div class="stat-value"><?= $bookings['cancellation_analysis']['canceled'] ?></div>
+                <div class="stat-label">Annulées</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card warning">
+                <div class="stat-icon"><i class="icon-percent"></i></div>
+                <div class="stat-value"><?= $bookings['cancellation_analysis']['rate'] ?>%</div>
+                <div class="stat-label">Taux annulation</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Bookings Trend Chart -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-line-chart"></i> Évolution des réservations</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 280px; position: relative;">
+                        <canvas id="bookingsTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Peak Months -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-calendar"></i> Mois les plus demandés</h5>
+                </div>
+                <div class="card-body">
+                    <?php foreach ($bookings['peak_booking_months'] as $index => $peak): ?>
+                    <div class="peak-stat <?= $index > 0 ? 'border-top pt-3' : '' ?>">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>
+                                <span class="rank-badge mr-2"><?= $index + 1 ?></span>
+                                <?= e($peak['month']) ?>
+                            </span>
+                            <span class="badge badge-primary badge-lg"><?= $peak['count'] ?> résa.</span>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                    <?php if (empty($bookings['peak_booking_months'])): ?>
+                    <p class="text-muted text-center">Aucune donnée disponible</p>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <!-- Bookings by Channel -->
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5><i class="icon-share-alt"></i> Par canal</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 180px; position: relative;">
+                        <canvas id="channelBookingsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Upcoming Check-ins -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-calendar-plus-o"></i> Arrivées à venir (7 jours)</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Bien</th>
+                                <th>Arrivée</th>
+                                <th>Départ</th>
+                                <th>Canal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($bookings['upcoming_checkins'] as $booking): ?>
+                            <tr>
+                                <td><strong><?= e($booking['customer']) ?></strong></td>
+                                <td><small><?= e($booking['listing']) ?></small></td>
+                                <td><?= e($booking['check_in']) ?></td>
+                                <td><?= e($booking['check_out']) ?></td>
+                                <td><span class="badge badge-info"><?= e($booking['channel']) ?></span></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($bookings['upcoming_checkins'])): ?>
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">Aucune arrivée prévue</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Checkouts -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-calendar-minus-o"></i> Départs récents (7 jours)</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Bien</th>
+                                <th>Départ</th>
+                                <th class="text-right">Revenu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($bookings['recent_checkouts'] as $booking): ?>
+                            <tr>
+                                <td><strong><?= e($booking['customer']) ?></strong></td>
+                                <td><small><?= e($booking['listing']) ?></small></td>
+                                <td><?= e($booking['check_out']) ?></td>
+                                <td class="text-right"><strong><?= e($booking['revenue']) ?></strong></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($bookings['recent_checkouts'])): ?>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">Aucun départ récent</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bookings by Property -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-home"></i> Réservations par bien (Top 10)</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bien</th>
+                                <th class="text-right">Réservations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($bookings['bookings_by_property'] as $index => $property): ?>
+                            <tr>
+                                <td><span class="rank-badge"><?= $index + 1 ?></span></td>
+                                <td><?= e($property['title']) ?></td>
+                                <td class="text-right">
+                                    <span style="color: #3498db; font-weight: 700; font-size: 1rem;"><?= $property['count'] ?></span>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($bookings['bookings_by_property'])): ?>
+                            <tr>
+                                <td colspan="3" class="text-center text-muted">Aucune donnée disponible</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Bookings Trend Chart
+    var trendCtx = document.getElementById('bookingsTrendChart');
+    if (trendCtx) {
+        var trendData = <?= json_encode($chartData['bookings'] ?? []) ?>;
+        var bookingsTrendChart = new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: trendData.map(d => d.date),
+                datasets: [{
+                    label: 'Réservations',
+                    data: trendData.map(d => d.value),
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('bookingsTrendChart', bookingsTrendChart);
+    }
+
+    // Channel Bookings Chart
+    var channelCtx = document.getElementById('channelBookingsChart');
+    if (channelCtx) {
+        var channelData = <?= json_encode($bookings['bookings_by_channel'] ?? []) ?>;
+        var channelBookingsChart = new Chart(channelCtx, {
+            type: 'doughnut',
+            data: {
+                labels: channelData.map(d => d.channel),
+                datasets: [{
+                    data: channelData.map(d => d.count),
+                    backgroundColor: ['#3498db', '#e74c3c', '#f1c40f', '#9b59b6']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('channelBookingsChart', channelBookingsChart);
+    }
+})();
+</script>

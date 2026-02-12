@@ -1,0 +1,10 @@
+name: Newsletters
+form: $/majormedia/toolbox/models/newsletter/fields.yaml
+modelClass: MajorMedia\ToolBox\Models\Newsletter
+defaultRedirect: majormedia/toolbox/newsletters
+create:
+  redirect: "majormedia/toolbox/newsletters/update/:id"
+  redirectClose: majormedia/toolbox/newsletters
+update:
+  redirect: majormedia/toolbox/newsletters
+  redirectClose: majormedia/toolbox/newsletters

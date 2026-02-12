@@ -1,0 +1,85 @@
+fields:
+    shortName:
+        label: "Short Name"
+        span: row
+        cssClass: col-lg-3
+        type: text
+    owner_full_name:
+        label: Nom complet du propriétaire
+        type: text
+        span: row
+        cssClass: col-lg-3
+        searchable: true
+    title:
+        label: "Titre"
+        span: row
+        cssClass: col-lg-3
+        type: text
+    address:
+        label: "Adresse"
+        span: row
+        cssClass: col-lg-3
+        type: text
+    description:
+        label: "Description"
+        span: row
+        cssClass: col-lg-12
+        type: textarea
+tabs:
+    fields:
+        owner:
+            label: Propriétaire
+            showSearch: true
+            type: relation
+            controller:
+                label: Propriétaire
+                list: $/majormedia/userplus/config/user_columns.yaml
+                form: $/majormedia/userplus/config/user_fields.yaml
+            tabs: Propriétaire
+
+        users:
+            label: Utilisateurs
+            showSearch: true
+            type: partial
+            path: $/majormedia/userplus/config/_users.htm
+            tab: Utilisateurs
+
+        expenses:
+            label: Dépenses
+            showSearch: true
+            type: partial
+            path: $/majormedia/listings/controllers/expenses/_expenses.htm
+            tab: Dépenses
+        statements:
+            label: Relevé des réservations
+            showSearch: true
+            type: partial
+            path: $/majormedia/listings/controllers/statements/_statements.htm
+            tab: Relevé des réservations
+        invoices:
+            label: Factures
+            showSearch: true
+            useController: true
+            type: relation
+            # path: $/majormedia/listings/controllers/statements/_statements.htm
+            tab: Factures
+        images:
+            label: Images
+            type: fileupload
+            mode: image
+            imageHeight: 260
+            imageWidth: 260
+            thumbOptions:
+                mode: crop
+                offset:
+                    - 0
+                    - 0
+                quality: 90
+                sharpen: 0
+                interlace: false
+                extension: auto
+            tab: Galerie
+        commission:
+            label: Commission 
+            type: number
+            tab: Commission

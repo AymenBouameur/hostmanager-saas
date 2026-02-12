@@ -1,0 +1,10 @@
+name: Statements
+form: $/majormedia/listings/models/statement/fields.yaml
+modelClass: MajorMedia\Listings\Models\Statement
+defaultRedirect: majormedia/listings/statements
+create:
+    redirect: 'majormedia/listings/statements/update/:id'
+    redirectClose: majormedia/listings/statements
+update:
+    redirect: majormedia/listings/statements
+    redirectClose: majormedia/listings/statements

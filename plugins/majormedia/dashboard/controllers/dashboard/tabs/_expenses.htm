@@ -1,0 +1,233 @@
+<?php $expenses = $expenses ?? []; ?>
+<div class="tab-expenses">
+    <!-- Expenses Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="stat-card danger">
+                <div class="stat-icon"><i class="icon-credit-card"></i></div>
+                <div class="stat-value"><?= $expenses['total_expenses']['formatted'] ?? '0,00 €' ?></div>
+                <div class="stat-label">Dépenses totales</div>
+                <div class="stat-evolution <?= $expenses['total_expenses']['trend'] ?? 'up' ?>">
+                    <?= ($expenses['total_expenses']['evolution'] ?? 0) >= 0 ? '+' : '' ?><?= $expenses['total_expenses']['evolution'] ?? 0 ?>%
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card success">
+                <div class="stat-icon"><i class="icon-euro"></i></div>
+                <div class="stat-value"><?= $expenses['net_profit']['revenue_formatted'] ?? '0,00 €' ?></div>
+                <div class="stat-label">Revenus</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card <?= ($expenses['net_profit']['net_profit'] ?? 0) >= 0 ? 'success' : 'danger' ?>">
+                <div class="stat-icon"><i class="icon-calculator"></i></div>
+                <div class="stat-value"><?= $expenses['net_profit']['net_profit_formatted'] ?? '0,00 €' ?></div>
+                <div class="stat-label">Profit net</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card info">
+                <div class="stat-icon"><i class="icon-percent"></i></div>
+                <div class="stat-value"><?= $expenses['net_profit']['margin'] ?? 0 ?>%</div>
+                <div class="stat-label">Marge</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Expenses by Type -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-pie-chart"></i> Répartition par type</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 250px; position: relative;">
+                        <canvas id="expensesTypeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monthly Expenses Trend -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-bar-chart"></i> Évolution mensuelle <?= date('Y') ?></h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 250px; position: relative;">
+                        <canvas id="monthlyExpensesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Expenses by Type Table -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-list"></i> Détail par type de dépense</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th class="text-right">Montant</th>
+                                <th class="text-right">Nb</th>
+                                <th class="text-right">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $expensesByType = $expenses['expenses_by_type'] ?? []; ?>
+                            <?php foreach ($expensesByType as $type): ?>
+                            <?php if (($type['total'] ?? 0) > 0): ?>
+                            <tr>
+                                <td><strong><?= e($type['type'] ?? '') ?></strong></td>
+                                <td class="text-right"><?= $type['total_formatted'] ?? '0,00 €' ?></td>
+                                <td class="text-right"><?= $type['count'] ?? 0 ?></td>
+                                <td class="text-right">
+                                    <span class="badge badge-secondary"><?= $type['percentage'] ?? 0 ?>%</span>
+                                </td>
+                            </tr>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
+                            <?php if (empty($expensesByType) || collect($expensesByType)->sum('total') == 0): ?>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">Aucune dépense sur cette période</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expenses by Property -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-home"></i> Dépenses par bien (Top 10)</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bien</th>
+                                <th class="text-right">Montant</th>
+                                <th class="text-right">Nb</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $expensesByProperty = $expenses['expenses_by_property'] ?? []; ?>
+                            <?php foreach ($expensesByProperty as $index => $property): ?>
+                            <tr>
+                                <td><span class="rank-badge"><?= $index + 1 ?></span></td>
+                                <td><?= e($property['title'] ?? '') ?></td>
+                                <td class="text-right"><strong><?= $property['total_formatted'] ?? '0,00 €' ?></strong></td>
+                                <td class="text-right"><?= $property['count'] ?? 0 ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($expensesByProperty)): ?>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">Aucune dépense sur cette période</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profit Summary -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <h4 class="text-success"><?= $expenses['net_profit']['revenue_formatted'] ?? '0,00 €' ?></h4>
+                            <p class="text-muted mb-0">Revenus totaux</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="text-danger">- <?= $expenses['net_profit']['expenses_formatted'] ?? '0,00 €' ?></h4>
+                            <p class="text-muted mb-0">Dépenses totales</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="<?= ($expenses['net_profit']['net_profit'] ?? 0) >= 0 ? 'text-success' : 'text-danger' ?>">
+                                = <?= $expenses['net_profit']['net_profit_formatted'] ?? '0,00 €' ?>
+                            </h4>
+                            <p class="text-muted mb-0">Profit net (marge <?= $expenses['net_profit']['margin'] ?? 0 ?>%)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Expenses by Type Chart
+    var typeCtx = document.getElementById('expensesTypeChart');
+    if (typeCtx) {
+        var typeData = <?= json_encode(array_values(array_filter($expenses['expenses_by_type'] ?? [], fn($t) => $t['total'] > 0))) ?>;
+        var expensesTypeChart = new Chart(typeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: typeData.map(d => d.type),
+                datasets: [{
+                    data: typeData.map(d => d.total),
+                    backgroundColor: [
+                        '#e74c3c', '#3498db', '#2ecc71', '#f1c40f',
+                        '#9b59b6', '#1abc9c', '#e67e22', '#34495e'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('expensesTypeChart', expensesTypeChart);
+    }
+
+    // Monthly Expenses Chart
+    var monthlyCtx = document.getElementById('monthlyExpensesChart');
+    if (monthlyCtx) {
+        var monthlyData = <?= json_encode($chartData['monthly'] ?? []) ?>;
+        var monthlyExpensesChart = new Chart(monthlyCtx, {
+            type: 'bar',
+            data: {
+                labels: monthlyData.map(d => d.label),
+                datasets: [{
+                    label: 'Dépenses (€)',
+                    data: monthlyData.map(d => d.total),
+                    backgroundColor: '#e74c3c',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('monthlyExpensesChart', monthlyExpensesChart);
+    }
+})();
+</script>

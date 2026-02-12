@@ -1,0 +1,33 @@
+columns:
+    id:
+        label: ID
+        type: text
+    company:
+        label: Company
+        type: text
+        relation: company
+        select: name
+        searchable: true
+    type:
+        label: Type
+        type: text
+    label:
+        label: Label
+        type: text
+        searchable: true
+    holder_name:
+        label: Holder
+        type: text
+        searchable: true
+    last_four:
+        label: Last 4
+        type: text
+    is_default:
+        label: Default
+        type: switch
+    is_active:
+        label: Active
+        type: switch
+    created_at:
+        label: Created
+        type: datetime

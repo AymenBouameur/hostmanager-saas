@@ -1,0 +1,484 @@
+/* Dashboard Statistics Styles for Vacaloc */
+
+.dashboard-stats-container {
+    padding: 20px;
+}
+
+/* Filters */
+.dashboard-filters {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.dashboard-filters .form-group {
+    margin-bottom: 0;
+}
+
+/* Alert Banner */
+.dashboard-alert-banner {
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.dashboard-alert-banner .alert-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-alert-banner .alert-summary {
+    font-weight: 500;
+}
+
+/* KPI Cards */
+.kpi-cards-container {
+    margin-bottom: 30px;
+}
+
+.kpi-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.kpi-card .kpi-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.kpi-label {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-evolution {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.kpi-evolution.positive {
+    color: #27ae60;
+}
+
+.kpi-evolution.negative {
+    color: #e74c3c;
+}
+
+.kpi-evolution i {
+    margin-right: 3px;
+}
+
+/* Tab Navigation */
+.dashboard-tabs {
+    margin-bottom: 20px;
+}
+
+.dashboard-tabs .nav-tabs {
+    border-bottom: 2px solid #e9ecef;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.dashboard-tabs .nav-link {
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #666;
+    font-weight: 500;
+    padding: 12px 20px;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.dashboard-tabs .nav-link:hover {
+    color: #3498db;
+    border-bottom-color: #3498db;
+}
+
+.dashboard-tabs .nav-link.active {
+    color: #3498db;
+    border-bottom-color: #3498db;
+    background: transparent;
+}
+
+.dashboard-tabs .nav-link i {
+    margin-right: 6px;
+}
+
+/* Tab Content */
+.tab-content-wrapper {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 25px;
+    min-height: 500px;
+}
+
+/* Stat Cards (in tabs) */
+.stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    height: 100%;
+    border-left: 4px solid transparent;
+}
+
+.stat-card .stat-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.stat-card .stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.stat-card .stat-label {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.stat-card .stat-evolution {
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+
+.stat-card .stat-evolution.up {
+    color: #27ae60;
+}
+
+.stat-card .stat-evolution.down {
+    color: #e74c3c;
+}
+
+/* Stat Card Colors */
+.stat-card.success {
+    border-left-color: #27ae60;
+}
+.stat-card.success .stat-icon {
+    color: #27ae60;
+}
+
+.stat-card.danger {
+    border-left-color: #e74c3c;
+}
+.stat-card.danger .stat-icon {
+    color: #e74c3c;
+}
+
+.stat-card.warning {
+    border-left-color: #f1c40f;
+}
+.stat-card.warning .stat-icon {
+    color: #f1c40f;
+}
+
+.stat-card.info {
+    border-left-color: #3498db;
+}
+.stat-card.info .stat-icon {
+    color: #3498db;
+}
+
+.stat-card.primary {
+    border-left-color: #3498db;
+}
+.stat-card.primary .stat-icon {
+    color: #3498db;
+}
+
+/* Channel Cards */
+.channel-card.primary {
+    border-left-color: #3498db;
+}
+.channel-card.primary .stat-icon {
+    color: #3498db;
+}
+
+.channel-card.danger {
+    border-left-color: #e74c3c;
+}
+.channel-card.danger .stat-icon {
+    color: #e74c3c;
+}
+
+.channel-card.info {
+    border-left-color: #17a2b8;
+}
+.channel-card.info .stat-icon {
+    color: #17a2b8;
+}
+
+.channel-card.warning {
+    border-left-color: #f1c40f;
+}
+.channel-card.warning .stat-icon {
+    color: #f1c40f;
+}
+
+/* Rank Badge */
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #3498db;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.card-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.card-header h5 i {
+    margin-right: 8px;
+    color: #3498db;
+}
+
+/* Tables */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    border-top: none;
+    border-bottom: 2px solid #eee;
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 12px 15px;
+}
+
+.table tbody td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Charts Container */
+canvas {
+    max-width: 100%;
+}
+
+/* Quick Stats List */
+.quick-stats-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-stats-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.quick-stats-list li:last-child {
+    border-bottom: none;
+}
+
+.quick-stats-list .stat-label {
+    color: #7f8c8d;
+}
+
+.quick-stats-list .stat-value {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Peak Stats */
+.peak-stat {
+    padding: 12px 0;
+}
+
+.peak-stat .peak-label {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+.peak-stat .peak-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3498db;
+    margin: 5px 0;
+}
+
+.peak-stat .peak-detail {
+    font-size: 0.85rem;
+    color: #95a5a6;
+}
+
+/* Badges */
+.badge-lg {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+}
+
+/* Progress Bars */
+.progress {
+    border-radius: 10px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    border-radius: 10px;
+}
+
+/* Occupancy Item */
+.occupancy-item {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.occupancy-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Alerts Detail Modal */
+.alerts-list .alert-item {
+    border-radius: 8px;
+}
+
+.alerts-list .alert-icon {
+    opacity: 0.8;
+}
+
+.alerts-list .alert-body h5 {
+    font-size: 1rem;
+}
+
+/* Best Channel Item */
+.best-channel-item h4 {
+    font-weight: 600;
+}
+
+/* Text colors */
+.text-purple {
+    color: #9b59b6 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .kpi-value {
+        font-size: 1.6rem;
+    }
+
+    .dashboard-tabs .nav-link {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .stat-card .stat-value {
+        font-size: 1.3rem;
+    }
+
+    .dashboard-filters .row {
+        flex-direction: column;
+    }
+
+    .dashboard-filters .col-md-2 {
+        margin-bottom: 10px;
+    }
+}
+
+/* Loading State */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content-wrapper > div {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Gap Utility */
+.gap-2 {
+    gap: 0.5rem;
+}
+
+/* List Group Customization */
+.list-group-item {
+    border-left: none;
+    border-right: none;
+}
+
+.list-group-item:first-child {
+    border-top: none;
+}
+
+/* Euro icon fix */
+.icon-euro:before {
+    content: "€";
+    font-style: normal;
+    font-weight: 700;
+}

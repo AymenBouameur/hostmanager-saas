@@ -1,0 +1,44 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+owner:
+    label: Owner
+    view:
+        form: $/majormedia/userplus/config/user_fields.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/majormedia/userplus/config/user_fields.yaml
+        list: $/majormedia/userplus/config/user_columns.yaml
+users:
+    label: Utilisateurs
+    manage:
+        form: $/majormedia/userplus/config/user_fields.yaml
+        list: $/majormedia/userplus/config/user_columns.yaml
+    view:
+        list: $/majormedia/userplus/config/user_columns.yaml
+        toolbarButtons: link|unlink
+expenses:
+    label: Expenses
+    manage:
+        form: $/majormedia/listings/models/expense/fields.yaml
+        list: $/majormedia/listings/models/expense/columns.yaml
+    view:
+        list: $/majormedia/listings/models/expense/columns.yaml
+        toolbarButtons: create|delete
+statements:
+    label: Documents
+    manage:
+        form: $/majormedia/listings/models/statement/fields.yaml
+        list: $/majormedia/listings/models/statement/columns.yaml
+    view:
+        list: $/majormedia/listings/models/statement/columns.yaml
+        toolbarButtons: create|delete
+invoices:
+    label: Factures
+    manage:
+        form: $/majormedia/listings/models/invoice/fields.yaml
+        list: $/majormedia/listings/models/invoice/columns.yaml
+    view:
+        list: $/majormedia/listings/models/invoice/columns.yaml
+        toolbarButtons: create|delete

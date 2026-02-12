@@ -1,0 +1,10 @@
+scopes:
+    listing:
+        label: Propriétaire
+        modelClass: MajorMedia\Listings\Models\Listing
+        conditions: listing_id in (:value)
+        nameFrom: title
+    statement_date:
+        label: Période du relevé
+        type: daterange
+        conditions: statement_date >= ':after' AND statement_date <= ':before'

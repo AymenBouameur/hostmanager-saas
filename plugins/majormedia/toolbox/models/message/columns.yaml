@@ -1,0 +1,60 @@
+columns:
+    # id:
+    #     label: '#'
+    #     type: number
+    #     searchable: true
+    #     sortable: true
+    # full_name:
+    #     label: 'Nom complet'
+    #     type: text
+    #     searchable: true
+    #     sortable: true
+    # company:
+    #     label: Société
+    #     type: text
+    #     searchable: true
+    #     sortable: true
+    # service:
+    #     label: Service
+    #     type: text
+    #     searchable: true
+    #     sortable: true
+    subject:
+        label: Sujet
+        type: text
+        searchable: true
+        sortable: true
+    message:
+        label: Message
+        type: text
+        searchable: true
+        sortable: true
+    # phone:
+    #     label: Tél.
+    #     type: text
+    #     searchable: true
+    #     sortable: true
+    # email:
+    #     label: E-mail
+    #     type: text
+    #     searchable: true
+    #     sortable: true
+    # website:
+    #     label: 'Site web'
+    #     type: text
+    #     searchable: true
+    #     sortable: true
+    # duration:
+    #     label: Durée
+    #     type: text
+    #     searchable: true
+    #     sortable: true
+    created_at:
+        label: 'Créé le'
+        type: datetime
+        sortable: true
+    # updated_at:
+    #     label: 'Modifié le'
+    #     type: datetime
+    #     invisible: true
+    #     sortable: true

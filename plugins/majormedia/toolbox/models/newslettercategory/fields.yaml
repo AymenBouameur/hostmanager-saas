@@ -1,0 +1,19 @@
+fields:
+    name:
+        label: Nom
+        span: auto
+        required: 1
+        type: text
+    is_active:
+        label: 'En ligne ?'
+        span: auto
+        on: Oui
+        off: Non
+        default: 1
+        type: switch
+    is_pinned:
+        label: 'Épinglé ?'
+        span: auto
+        on: Oui
+        off: Non
+        type: switch

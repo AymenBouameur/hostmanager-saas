@@ -1,0 +1,12 @@
+scopes:
+    created_date:
+        label: rainlab.user::lang.user.created_at
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+
+    activated:
+        label: rainlab.user::lang.user.status_activated
+        type: switch
+        conditions:
+            - is_activated = '0'
+            - is_activated = '1'

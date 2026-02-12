@@ -1,0 +1,74 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    id:
+        label: "ID"
+        span: auto
+        disabled: true
+
+    otp_code:
+        label: "OTP"
+        span: auto
+        disabled: true
+
+tabs:
+    fields:
+        # username:
+        #     label: "Nom d'utilisateur"
+        #     tab: "Compte"
+        #     span: auto
+
+        email:
+            label: "Email"
+            tab: "Compte"
+            span: auto
+
+        name:
+            label: "Nom"
+            tab: "Compte"
+            span: auto
+
+        surname:
+            label: "Prénom"
+            tab: "Compte"
+            span: auto
+        phone:
+            label: "Téléphone" 
+            tab: "Compte"
+            span: auto
+            type: text
+
+        password@create:
+            label: "Créer un mot de passe"
+            comment: "Commentaire sur la création du mot de passe"
+            tab: "Compte"
+            type: password
+            span: left
+
+        password@update:
+            label: "Réinitialiser le mot de passe"
+            comment: "Commentaire sur la réinitialisation du mot de passe"
+            tab: "Compte"
+            type: password
+            span: left
+
+        password_confirmation:
+            label: "Confirmer le mot de passe"
+            comment: "Commentaire sur la confirmation du mot de passe"
+            tab: "Compte"
+            type: password
+            span: right
+            context: [create, update]
+
+
+secondaryTabs:
+    fields:
+        avatar:
+            label: "Avatar"
+            type: fileupload
+            mode: image
+            imageHeight: 260
+            imageWidth: 260

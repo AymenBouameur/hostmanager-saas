@@ -1,0 +1,26 @@
+columns:
+    id:
+        label: ID
+        type: text
+    listing:
+        label: Annonce
+        relation: listing
+        select: title
+        searchable: true
+    statement_date:
+        label: Date du relevé
+        type: datetime
+
+    download_file:
+        label: Télécharger le fichier
+        type: partial
+        path: $/majormedia/listings/controllers/statements/_download_file.htm
+    is_active_text:
+        label: Actif
+        type: text
+    created_at:
+        label: Créé le
+        type: datetime
+    updated_at:
+        label: Mis à jour le
+        type: datetime

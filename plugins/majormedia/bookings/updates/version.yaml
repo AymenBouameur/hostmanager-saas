@@ -1,0 +1,5 @@
+1.0.1:
+    - Initialize plugin.
+1.0.2:
+    - "Created table majormedia_booking_bookings"
+    - create_bookings_table.php

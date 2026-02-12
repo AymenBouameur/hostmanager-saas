@@ -1,0 +1,6 @@
+plugin:
+    name: 'Dashboard Statistiques'
+    description: 'Tableau de bord analytique pour Vacaloc - Gestion locative'
+    author: 'Majormedia'
+    icon: 'icon-line-chart'
+    homepage: ''

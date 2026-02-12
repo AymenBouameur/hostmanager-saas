@@ -1,0 +1,28 @@
+columns:
+    id:
+        label: ID
+        type: text
+    shortName:
+        label: Short Name
+        type: text
+    owner_full_name:
+        label: Propriétaire
+        type: text
+        searchable: true
+
+    title:
+        label: Titre
+        type: text
+        searchable: true
+    address:
+        label: Adresse
+        type: text
+    commission:
+        label: Commission
+        type: number
+
+    generate_statement:
+        label: Générer un relevé
+        type: partial
+        clickable: false
+        path: $/majormedia/listings/controllers/listings/_generate_statement.htm

@@ -1,0 +1,10 @@
+name: Subscriptions
+form: $/majormedia/billing/models/subscription/fields.yaml
+modelClass: MajorMedia\Billing\Models\Subscription
+defaultRedirect: majormedia/billing/subscriptions
+create:
+    redirect: "majormedia/billing/subscriptions/update/:id"
+    redirectClose: majormedia/billing/subscriptions
+update:
+    redirect: majormedia/billing/subscriptions
+    redirectClose: majormedia/billing/subscriptions

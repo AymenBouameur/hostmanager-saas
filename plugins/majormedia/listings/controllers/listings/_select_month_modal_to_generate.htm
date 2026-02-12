@@ -1,0 +1,36 @@
+<div class="modal-body">
+    <form data-request="onGenerateStatement"
+        data-request-success="$.oc.flashMsg({ text: 'Succès', class: 'success' });  $.oc.popup.hide();"
+        data-request-progress-bar="false"
+        data-request-error="$.oc.flashMsg({ text: 'Erreur', class: 'error' });  $.oc.popup.hide();"
+        data-request-flash data-request-success="$.oc.popup.hide()">
+
+        <input type="hidden" name="type" value="<?= $type ?>" />
+
+        <div class="form-group">
+            <label for="month">Mois</label>
+            <select class="form-control" name="month" required>
+                <option value="">-- Choisir un mois --</option>
+                <?php
+                                    $monthsFr = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+                                    foreach ($monthsFr as $index => $monthName):
+                                        $m = $index + 1;
+                                    ?>
+                <option value="<?= $m ?>">
+                    <?= $monthName ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+
+        </div>
+
+        <div class="form-group text-right">
+            <button type="submit" class="btn btn-primary">
+                Générer
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+                Annuler
+            </button>
+        </div>
+    </form>
+</div>

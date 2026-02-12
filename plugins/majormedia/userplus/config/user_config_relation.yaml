@@ -1,0 +1,32 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+role:
+    label: Role
+    view:
+        form: $/majormedia/userplus/models/role/fields.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/majormedia/userplus/models/role/fields.yaml
+        list: $/majormedia/userplus/models/role/columns.yaml
+
+# listings:
+#     label: Biens Immobiliers
+#     manage:
+#         form: $/majormedia/listings/models/listing/fields.yaml
+#         list: $/majormedia/listings/models/listing/columns_without_relation.yaml
+#     view:
+#         list: $/majormedia/listings/models/listing/columns_without_relation.yaml
+#         toolbarButtons: link|unlink
+listings:
+    label: Biens Immobiliers
+    manage:
+        form: $/majormedia/listings/models/listing/fields.yaml
+        list: $/majormedia/listings/models/listing/columns.yaml
+        showSearch: true
+        recordsPerPage: 10
+    view:
+        list: $/majormedia/listings/models/listing/columns.yaml
+        toolbarButtons: add|remove
+        showSearch: true
+        recordsPerPage: 10

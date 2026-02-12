@@ -1,0 +1,11 @@
+v1.0.1:
+    - "Initialize plugin"
+1.0.2:
+    - "Create Companies Table"
+    - create_companies_table.php
+1.0.3:
+    - "Add company_id to backend_users table"
+    - add_company_id_to_backend_users_table.php
+1.0.4:
+    - "Add company_id and nb_rooms to listings table"
+    - add_company_id_and_nb_rooms_to_listings_table.php

@@ -1,0 +1,60 @@
+# Composer ignores
+/vendor
+composer.phar
+composer.lock
+
+.babelrc
+.editorconfig
+.gitattributes
+.jshintrc
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+LICENSE
+package.json
+phpcs.xml
+phpunit.xml
+SECURITY.md
+
+# Framework ignores
+.env.example
+.env.*.php
+.env.php
+selenium.php
+/bootstrap/compiled.php
+.phpunit.result.cache
+
+# Hosting ignores
+php_errors.log
+nginx-error.log
+nginx-access.log
+nginx-ssl.access.log
+nginx-ssl.error.log
+sftp-config.json
+.ftpconfig
+.htaccess
+
+# Editor ignores
+nbproject
+.idea
+php-errors.log
+.vscode
+_ide_helper.php
+
+# Other ignores
+.DS_Store
+package-lock.json
+/node_modules
+
+*.mwb
+*.sql
+*.env
+.old/
+
+**/Icon
+
+.user.ini
+error_log
+php.ini
+
+#October CMS
+/classes/*

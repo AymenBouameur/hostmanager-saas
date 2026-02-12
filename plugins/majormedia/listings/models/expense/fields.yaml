@@ -1,0 +1,27 @@
+fields:
+    listing:
+        label: "Propriété"
+        span: row
+        type: relation
+        select: title
+        cssClass: col-lg-2
+    label:
+        label: "Libellé"
+        span: row
+        type: text
+        cssClass: col-lg-2
+    amount:
+        label: "Montant"
+        span: row
+        type: number
+        cssClass: col-lg-2
+    expenses_type:
+        label: "Type de dépense"
+        span: row
+        type: dropdown
+        cssClass: col-lg-2
+    processed_at:
+        label: "Date de traitement"
+        span: row
+        type: datepicker
+        cssClass: col-lg-3

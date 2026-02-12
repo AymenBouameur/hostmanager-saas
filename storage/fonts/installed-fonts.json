@@ -1,0 +1,16 @@
+{
+    "jost": {
+        "bold": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_bold_e6c15aa95699d45f60d5343afe7f1391",
+        "bold_italic": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_bold_italic_e4a595ec0ef3a211eaa8619f09ce40cc",
+        "800": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_800_062184c63abef837504af9ed006df9ad",
+        "800_italic": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_800_italic_610ab8088d2505b16a3ec4adc7ede549",
+        "300": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_300_f8da0dab07b2fe82ee0a66e5d0b9fdde",
+        "300_italic": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_300_italic_953a292c74a8026189ee5220d7fe2541",
+        "500": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_500_f3e72a0dd2dd77d048900203ce2421f4",
+        "500_italic": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_500_italic_9523e278f270136d6de61790ebc53c1d",
+        "normal": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_normal_03ba9e0417dcb9e6c7c58d0045b0aa39",
+        "600": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_600_86c13aa9c497366c6266b1fcd28653ae",
+        "600_italic": "\/home\/vacaloc\/public_html\/vacaloc-api\/storage\/fonts\/jost_600_italic_1b40f9e18e75260638ccc0c2d429a51a",
+        "italic": "jost_italic_17c28c3bba94c0c56b29b350805dcf9d"
+    }
+}

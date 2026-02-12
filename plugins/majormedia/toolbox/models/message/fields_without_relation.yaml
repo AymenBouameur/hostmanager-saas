@@ -1,0 +1,54 @@
+fields:
+    # service:
+    #     label: Service
+    #     span: full
+    #     type: text
+    # full_name:
+    #     label: 'Nom complet'
+    #     span: auto
+    #     type: text
+    # email:
+    #     label: E-mail
+    #     span: auto
+    #     type: text
+    # company:
+    #     label: Société
+    #     span: auto
+    #     type: text
+    # phone:
+    #     label: Téléphone
+    #     span: auto
+    #     type: text
+    # website:
+    #     label: 'Site web'
+    #     span: full
+    #     type: text
+    # duration:
+    #     label: Durée
+    #     span: full
+    #     type: text
+
+tabs:
+    fields:
+
+        subject:
+            label: Sujet
+            span: full
+            type: text
+            tab: Notification info
+        message:
+            label: Message
+            size: large
+            span: full
+            type: textarea
+            tab: Notification info
+        file:
+            label: 'Fichiers joints'
+            mode: file
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: full
+            type: fileupload
+            tab: Notification info

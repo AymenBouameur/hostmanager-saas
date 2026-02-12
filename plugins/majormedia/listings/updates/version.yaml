@@ -1,0 +1,20 @@
+v1.0.1:
+    - "Initialize plugin"
+1.0.2:
+    - "Create Listings Table"
+    - create_listings_table.php
+1.0.3:
+    - "Create Expenses Table"
+    - create_expenses_table.php
+1.0.4:
+    - "Create Statements Table"
+    - create_statements_table.php
+1.0.5:
+    - "Create Invoices Table"
+    - create_invoices_table.php
+1.0.6:
+    - "Create User Listings Table"
+    - create_user_listings_table.php
+1.0.7:
+    - Add New Columns To Listings Table
+    - add_new_columns_to_listings_table.php

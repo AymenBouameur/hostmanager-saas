@@ -1,0 +1,47 @@
+<div class="alerts-list">
+    <?php if ($alertsList->isEmpty()): ?>
+        <div class="text-center text-muted py-4">
+            <i class="icon-check" style="font-size: 2rem;"></i>
+            <p class="mt-2">Aucune alerte active</p>
+        </div>
+    <?php else: ?>
+        <?php foreach ($alertsList as $alert): ?>
+            <div class="alert-item alert alert-<?= $alert['level'] == 'critical' ? 'danger' : ($alert['level'] == 'warning' ? 'warning' : 'info') ?> mb-3">
+                <div class="d-flex">
+                    <div class="alert-icon mr-3">
+                        <i class="<?= $alert['icon'] ?? 'icon-warning' ?>" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="alert-body flex-grow-1">
+                        <h5 class="mb-1"><?= e($alert['title']) ?></h5>
+                        <p class="mb-2"><?= e($alert['message']) ?></p>
+
+                        <?php if (!empty($alert['items'])): ?>
+                            <div class="alert-items mt-2">
+                                <small class="text-muted">Détails :</small>
+                                <ul class="list-unstyled mb-0 mt-1">
+                                    <?php foreach (array_slice($alert['items'], 0, 5) as $item): ?>
+                                        <li class="small">
+                                            <?php if (is_array($item)): ?>
+                                                <?= e($item['title'] ?? $item['number'] ?? $item['customer'] ?? json_encode($item)) ?>
+                                            <?php else: ?>
+                                                <?= e($item) ?>
+                                            <?php endif; ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                    <?php if (count($alert['items']) > 5): ?>
+                                        <li class="small text-muted">... et <?= count($alert['items']) - 5 ?> autre(s)</li>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="alert-badge">
+                        <span class="badge badge-<?= $alert['level'] == 'critical' ? 'danger' : ($alert['level'] == 'warning' ? 'warning' : 'info') ?> badge-lg">
+                            <?= $alert['count'] ?>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>

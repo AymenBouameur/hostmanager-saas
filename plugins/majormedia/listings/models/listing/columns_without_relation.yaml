@@ -1,0 +1,31 @@
+columns:
+    id:
+        label: ID
+        type: text
+    shortName:
+        label: Short Name
+        type: text
+    title:
+        label: Titre
+        type: text
+    address:
+        label: Adresse
+        type: text
+    description:
+        label: Description
+        type: text
+    is_active:
+        label: Actif
+        type: text
+    is_pinned:
+        label: Épinglé
+        type: text
+    sort_order:
+        label: Ordre de tri
+        type: number
+    created_at:
+        label: Créé le
+        type: datetime
+    updated_at:
+        label: Mis à jour le
+        type: datetime

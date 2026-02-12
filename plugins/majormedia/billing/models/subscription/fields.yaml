@@ -1,0 +1,62 @@
+fields:
+    company:
+        label: Company
+        type: relation
+        nameFrom: name
+        span: row
+        cssClass: col-lg-4
+    pricing_plan:
+        label: Pricing Plan
+        type: relation
+        nameFrom: name
+        span: row
+        cssClass: col-lg-4
+    status:
+        label: Status
+        type: dropdown
+        span: row
+        cssClass: col-lg-4
+        options:
+            1: Trial
+            2: Active
+            3: Past Due
+            4: Canceled
+            5: Expired
+    billing_cycle:
+        label: Billing Cycle
+        type: dropdown
+        span: row
+        cssClass: col-lg-3
+        options:
+            1: Monthly
+            2: Annual
+    starts_at:
+        label: Starts At
+        type: datepicker
+        mode: datetime
+        span: row
+        cssClass: col-lg-3
+    ends_at:
+        label: Ends At
+        type: datepicker
+        mode: datetime
+        span: row
+        cssClass: col-lg-3
+    trial_ends_at:
+        label: Trial Ends At
+        type: datepicker
+        mode: datetime
+        span: row
+        cssClass: col-lg-3
+    next_billing_date:
+        label: Next Billing Date
+        type: datepicker
+        mode: datetime
+        span: row
+        cssClass: col-lg-3
+    canceled_at:
+        label: Canceled At
+        type: datepicker
+        mode: datetime
+        span: row
+        cssClass: col-lg-3

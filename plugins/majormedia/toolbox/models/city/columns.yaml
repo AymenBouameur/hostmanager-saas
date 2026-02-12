@@ -1,0 +1,39 @@
+columns:
+  id:
+    label: "#"
+    type: number
+    searchable: true
+    sortable: true
+  name:
+    label: Nom
+    type: text
+    searchable: true
+    sortable: true
+  state:
+    label: Région
+    relation: state
+    select: name
+  lat:
+    label: Latitude
+    type: number
+  lng:
+    label: longitude
+    type: number
+  is_active:
+    label: Activé
+    type: switch
+    sortable: true
+  is_pinned:
+    label: "Mise en avant"
+    type: switch
+    sortable: true
+  created_at:
+    label: created_at
+    type: datetime
+    invisible: true
+    sortable: true
+  updated_at:
+    label: updated_at
+    type: datetime
+    invisible: true
+    sortable: true

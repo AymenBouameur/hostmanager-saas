@@ -1,0 +1,9 @@
+user:
+    label: User
+    tab: user
+    view:
+        form: $/majormedia/userplus/config/user_fields.yaml
+        toolbarButtons: link|unlink
+    manage:
+        form: $/majormedia/userplus/config/user_fields.yaml
+        list: $/majormedia/userplus/config/user_columns.yaml

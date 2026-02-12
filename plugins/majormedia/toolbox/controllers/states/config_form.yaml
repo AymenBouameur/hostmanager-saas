@@ -1,0 +1,10 @@
+name: States
+form: $/majormedia/toolbox/models/state/fields.yaml
+modelClass: MajorMedia\ToolBox\Models\State
+defaultRedirect: majormedia/toolbox/states
+create:
+  redirect: "majormedia/toolbox/states/update/:id"
+  redirectClose: majormedia/toolbox/states
+update:
+  redirect: majormedia/toolbox/states
+  redirectClose: majormedia/toolbox/states

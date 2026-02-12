@@ -1,0 +1,7 @@
+payments:
+    label: Payments
+    view:
+        list: $/majormedia/billing/models/payment/columns.yaml
+    manage:
+        list: $/majormedia/billing/models/payment/columns.yaml
+        form: $/majormedia/billing/models/payment/fields.yaml

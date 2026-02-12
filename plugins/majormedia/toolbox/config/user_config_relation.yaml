@@ -1,0 +1,8 @@
+messages:
+    label: messages
+    manage:
+        form: $/majormedia/toolbox/models/message/fields_without_relation.yaml
+        list: $/majormedia/toolbox/models/message/columns.yaml
+    view:
+        list: $/majormedia/toolbox/models/message/columns.yaml
+        toolbarButtons: create|delete

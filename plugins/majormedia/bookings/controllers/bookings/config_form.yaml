@@ -1,0 +1,10 @@
+name: Bookings
+form: $/majormedia/bookings/models/booking/fields.yaml
+modelClass: MajorMedia\Bookings\Models\Booking
+defaultRedirect: majormedia/bookings/bookings
+create:
+    redirect: 'majormedia/bookings/bookings/update/:id'
+    redirectClose: majormedia/bookings/bookings
+update:
+    redirect: majormedia/bookings/bookings
+    redirectClose: majormedia/bookings/bookings

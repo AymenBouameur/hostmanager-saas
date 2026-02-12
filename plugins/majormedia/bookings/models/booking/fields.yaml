@@ -1,0 +1,107 @@
+fields:
+    listing:
+        label: "Propriété"
+        span: row
+        cssClass: col-lg-3
+        type: relation
+        select: title
+    reference:
+        label: Réference
+        span: row
+        cssClass: col-lg-3
+        type: text
+        
+    order_reference:
+        label: Order Réference
+        span: row
+        cssClass: col-lg-3
+        type: text
+    customer:
+        label: Locataire
+        span: row
+        cssClass: col-lg-3
+        type: text
+    check_in:
+        label: Date d'arrivé
+        span: row
+        cssClass: col-lg-3
+        type: datepicker
+        mode: date
+    check_out:
+        label: Date de départ
+        span: row
+        cssClass: col-lg-3
+        type: datepicker
+        mode: date
+    canal:
+        label: Canal
+        span: row
+        cssClass: col-lg-3
+        type: dropdown
+    is_canceled:
+        label: Statut d'annulation
+        span: row
+        cssClass: col-lg-3
+        type: checkbox
+    # status:
+    #     label: Status
+    #     span: row
+    #     cssClass: col-lg-3
+    #     type: dropdown
+tabs:
+    fields:
+        net_amount:
+            label: Montant Net
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais
+
+        gross_amount:
+            label: Montant Brut
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais
+
+        clearning_fee:
+            label: Frais de Nettoyage
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais
+
+        tax:
+            label: Taxe
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais
+
+        vacaloc_commission:
+            label: Commission Vacaloc
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais
+
+        ota_commission:
+            label: Commission OTA
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais
+
+        total_amount_order:
+            label: Total de la Commande
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais
+
+        owner_profit:
+            label: Profit Propriétaire
+            span: row
+            cssClass: col-lg-3
+            type: number
+            tab: Frais

@@ -1,0 +1,28 @@
+plugin:
+    name: "majormedia.bookings::lang.plugin.name"
+    description: "majormedia.bookings::lang.plugin.description"
+    author: majormedia
+    icon: oc-icon-bookmark
+    homepage: ""
+permissions:
+    "majormedia.bookings::plugin.manage":
+        tab: "majormedia.bookings::lang.permissions.tab_label"
+        label: "majormedia.bookings::lang.manage.plugin.title"
+    "majormedia.bookings::bookingss.manage":
+        tab: "majormedia.bookings::lang.permissions.tab_label"
+        label: "majormedia.bookings::lang.manage.bookingss.title"
+
+navigation:
+    bookings:
+        label: "majormedia.bookings::lang.menu.bookings.label"
+        url: majormedia/bookings/bookings
+        iconSvg: /plugins/majormedia/bookings/assets/icons/bookings.svg
+        permissions:
+            - "majormedia.bookings::bookings.manage"
+        sideMenu:
+            bookings:
+                label: "majormedia.bookings::lang.menu.bookings.label"
+                url: majormedia/bookings/bookings
+                iconSvg: /plugins/majormedia/bookings/assets/icons/bookings.png
+                permissions:
+                    - "majormedia.bookings::bookings.manage"

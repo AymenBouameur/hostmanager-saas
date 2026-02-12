@@ -1,0 +1,34 @@
+{% if states is empty %}
+  {% set states = __SELF__.getStates %}
+{% endif %}
+
+<div id="citiesDP{{ formKey }}">
+  {% if states is not empty %}
+    {% set fieldname = __SELF__.property('fieldname') %}
+    {% set ajax = __SELF__.property('ajax') %}
+    {% set required = __SELF__.property('required') %}
+    {% set show_zipcode = __SELF__.property('show_zipcode') %}
+
+    <span class="text-danger" data-validate-for="{{ fieldname }}"></span>
+    {% if ajax %}
+      {# TODO #}
+      {# <input type="hidden" name="city_id" value="{{ selected_city.id }}">
+<input name="city_id_form" type="text" class="form-control ac-city-search city-{{ formKey }}" data-formKey="{{ formKey }}" value="{{ selected_city.name }}{{ selected_city.postal_code ? ' ('~selected_city
+.postal_code~')' }}" placeholder="Entrer une ville ou un code postal..."> #}
+
+    {% else %}
+      <select class="form-control" name="{{ fieldname }}">
+        <option value="0">Choisissez une ville{{ required ? ' (*)' }}</option>
+        {% for s in states if s.cities_active_ordered is not empty %}
+          <optgroup label="{{ s.name }}">
+            {% for c in s.cities_active_ordered %}
+              <option value="{{ c.id }}" {{ selected_city_id == c.id ? 'selected' }}>{{ c.name }}{{ show_zipcode and c.postal_code ? ' ('~c.postal_code~')' }}</option>
+            {% endfor %}
+          </optgroup>
+        {% endfor %}
+      </select>
+
+    {% endif %}
+
+  {% endif %}
+</div>

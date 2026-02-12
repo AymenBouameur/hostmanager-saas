@@ -1,0 +1,14 @@
+v1.0.1:
+    - "Initialize plugin"
+1.0.2:
+    - "Create Pricing Plans Table"
+    - create_pricing_plans_table.php
+1.0.3:
+    - "Create Subscriptions Table"
+    - create_subscriptions_table.php
+1.0.4:
+    - "Create Payment Methods Table"
+    - create_payment_methods_table.php
+1.0.5:
+    - "Create Payments Table"
+    - create_payments_table.php

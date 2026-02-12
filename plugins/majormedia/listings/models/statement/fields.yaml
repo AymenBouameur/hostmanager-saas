@@ -1,0 +1,27 @@
+fields:
+    listing:
+        label: "Annonce"
+        span: auto
+        type: relation
+        select: title
+    statement_date:
+        label: "Date du relevé"
+        span: auto
+        type: datepicker
+
+tabs:
+    fields:
+        document:
+            label: "Pièce jointe "
+            type: fileupload
+            mode: file
+            thumbOptions:
+                mode: crop
+                offset:
+                    - 0
+                    - 0
+                quality: 90
+                sharpen: 0
+                interlace: false
+                extension: auto
+            tab: "Pièce jointe "

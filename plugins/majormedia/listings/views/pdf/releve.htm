@@ -1,0 +1,351 @@
+{% extends "majormedia.listings::pdf.template_pdf" %}
+
+{% block content %}
+<style>
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-BoldItalic.ttf") format("truetype");
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-ExtraBold.ttf") format("truetype");
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-ExtraBoldItalic.ttf") format("truetype");
+        font-weight: 800;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-Light.ttf") format("truetype");
+        font-weight: 300;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-LightItalic.ttf") format("truetype");
+        font-weight: 300;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-MediumItalic.ttf") format("truetype");
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-SemiBold.ttf") format("truetype");
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-SemiBoldItalic.ttf") format("truetype");
+        font-weight: 600;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Jost';
+        src: url("/storage/fonts/Jost-Italic.ttf") format("truetype");
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    :root {
+        --primary-color: rgba(48, 179, 166, 1);
+        --secondary-color: rgba(32, 53, 50, 1);
+        --base-font-size: 16px;
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    body {
+        font-family: "Jost", serif;
+        margin: 0 auto;
+        padding: 0 5.06rem;
+        color: #333;
+        max-width: 63.44rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.125rem 0;
+        border-bottom: 0.125rem solid rgba(0, 0, 0, 0.08);
+        color: var(--primary-color);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.437rem;
+    }
+
+    .client-info {
+        margin-top: 2.125rem;
+    }
+
+    .client-info h2 {
+        font-weight: 500;
+        font-size: 2.0625rem;
+        line-height: 3rem;
+        letter-spacing: -0.0625rem;
+        text-transform: capitalize;
+        color: var(--secondary-color);
+        margin-bottom: 1.625rem;
+    }
+
+    .client-info p {
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.3125rem;
+        color: #aeaeae;
+    }
+
+    .client-info span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.625rem;
+        line-height: 2.375rem;
+        letter-spacing: -0.0625rem;
+        color: var(--secondary-color);
+    }
+
+    .message {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.3125rem;
+        color: #626262;
+        margin-top: 2.25rem;
+    }
+
+    table {
+        width: 100%;
+        margin: 2.625rem 0 0 0;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+    }
+
+    thead th {
+        background-color: rgba(48, 179, 166, 0.09);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.4375rem;
+        color: #888888;
+        text-align: start;
+    }
+
+    table th,
+    table td {
+        border-bottom: 0.125rem solid rgba(242, 244, 247, 1);
+        padding: 0.625rem 0.5rem;
+    }
+
+    tbody td {
+        text-align: center;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        line-height: 1.4375;
+        letter-spacing: -0.0625rem;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .subtotal td {
+        font-weight: bold;
+        background-color: #f4f4f4;
+    }
+
+    .summary {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 4.25rem;
+    }
+
+    .summary>p {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.3125rem;
+        color: #626262;
+    }
+
+    .summary>div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .summary>div>p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.3125rem;
+        color: #aeaeae;
+    }
+
+    .summary>div>p>span {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.125rem;
+        line-height: 1.625rem;
+        letter-spacing: -0.0625rem;
+        margin-left: 1.125rem;
+    }
+
+    .summary>div>p:first-of-type>span {
+        color: var(--secondary-color);
+    }
+
+    .summary>div>p:nth-of-type(2)>span {
+        color: rgba(224, 86, 91, 1);
+    }
+
+    .summary>div>p:last-of-type>span {
+        color: var(--primary-color);
+    }
+
+    footer {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        line-height: 1.25rem;
+        text-align: center;
+        color: var(--primary-color);
+        padding: 1.75rem 0;
+        border-top: 0.125rem solid rgba(0, 0, 0, 0.08);
+        margin-top: 2.9375rem;
+    }
+</style>
+<section class="client-info">
+    <h2>Relevé Des Réservations</h2>
+    <p>
+        Ref client<br />
+        <span>{{ listing.id }}</span>
+    </p>
+    <p>
+        Propriétaire<br />
+        <span>{{ listing.user.name }} {{ listing.user.surname }}</span>
+    </p>
+    <p>
+        Adresse logement<br />
+        <span>{{ listing.address }}</span>
+    </p>
+</section>
+
+<section class="message">
+    <p>
+        Madame, Monsieur,<br />
+        Nous vous prions de trouver ci-après votre relevé de réservations sur la période du 01/07/2024 au 31/07/2024.
+        Nous vous en souhaitons bonne réception.
+    </p>
+</section>
+
+<section class="reservation-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>N° de réservation</th>
+                <th>Source</th>
+                <th>Nbs nuit</th>
+                <th>Ménage CO/CI</th>
+                <th>Commissions suit</th>
+                <th>Montant séjour</th>
+                <th>Commissions vacaloc</th>
+                <th>Montant séjour</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.created_at|date("Y/m/d") }}</td>
+                <td>{{ booking.reference }}</td>
+                <td>{{ booking.canal == 1 ? 'airbnb' : 'Booking' }}</td>
+                <td>40</td>
+                <td>{{ (booking.amount * 0.15) | number_format(2) }}</td>
+                <td>{{ booking.amount | number_format(2) }}</td>
+                <td>{{ (booking.amount * 0.1) | number_format(2) }}</td>
+                <td>{{ (booking.amount - booking.amount * 0.1) | number_format(2) }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="subtotal">
+                <td colspan="3"><strong>Sous Total</strong></td>
+                <td>{{ cleaningFeeSum | number_format(2) }}</td>
+                <td>{{ commissionSum | number_format(2) }}</td>
+                <td>{{ amountSum | number_format(2) }}</td>
+                <td>{{ vacalocCommissionSum | number_format(2) }}</td>
+                <td>{{ stayAmountAfterCommissionSum | number_format(2) }}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="summary">
+    <p>Achat petite fourniture cuisine (30)</p>
+    <div>
+        <p>Sous total net <span>1771,02</span></p>
+        <p>Total Débours <span>-30,00</span></p>
+        <p>
+            <strong>Solde net en votre faveur (Eur)</strong> <span>1741,02</span>
+        </p>
+    </div>
+</section>
+{% endblock %}

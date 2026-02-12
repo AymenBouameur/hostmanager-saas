@@ -1,0 +1,244 @@
+<div class="tab-channels">
+    <!-- Channel Cards -->
+    <div class="row mb-4">
+        <?php
+        $channelColors = [
+            'Vacaloc' => ['bg' => 'primary', 'icon' => 'icon-globe'],
+            'Airbnb' => ['bg' => 'danger', 'icon' => 'icon-home'],
+            'Bookings.com' => ['bg' => 'info', 'icon' => 'icon-building'],
+            'Vrbo' => ['bg' => 'warning', 'icon' => 'icon-star'],
+        ];
+        ?>
+        <?php foreach ($channels['channel_performance'] as $channel): ?>
+        <?php $color = $channelColors[$channel['channel']] ?? ['bg' => 'secondary', 'icon' => 'icon-share-alt']; ?>
+        <div class="col-md-3">
+            <div class="stat-card channel-card <?= $color['bg'] ?>">
+                <div class="stat-icon"><i class="<?= $color['icon'] ?>"></i></div>
+                <div class="stat-value"><?= $channel['revenue_formatted'] ?></div>
+                <div class="stat-label"><?= e($channel['channel']) ?></div>
+                <div class="stat-evolution">
+                    <small><?= $channel['bookings'] ?> résa. • Moy: <?= $channel['avg_value_formatted'] ?></small>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="row">
+        <!-- Channel Performance Table -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-bar-chart"></i> Performance comparative</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Canal</th>
+                                <th class="text-right">Réservations</th>
+                                <th class="text-right">Revenus</th>
+                                <th class="text-right">Valeur moy.</th>
+                                <th class="text-right">Commission</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($channels['channel_performance'] as $channel): ?>
+                            <tr>
+                                <td>
+                                    <strong><?= e($channel['channel']) ?></strong>
+                                </td>
+                                <td class="text-right">
+                                    <span class="badge badge-primary"><?= $channel['bookings'] ?></span>
+                                </td>
+                                <td class="text-right"><strong><?= $channel['revenue_formatted'] ?></strong></td>
+                                <td class="text-right"><?= $channel['avg_value_formatted'] ?></td>
+                                <td class="text-right">
+                                    <small class="text-muted"><?= $channel['commission_formatted'] ?></small>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Channel -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-trophy"></i> Meilleur canal</h5>
+                </div>
+                <div class="card-body">
+                    <?php if ($channels['best_channel']['by_revenue']): ?>
+                    <div class="best-channel-item mb-4">
+                        <div class="text-muted small mb-1">Par revenus</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0 text-success"><?= e($channels['best_channel']['by_revenue']['channel']) ?></h4>
+                            <span class="badge badge-success badge-lg"><?= $channels['best_channel']['by_revenue']['revenue_formatted'] ?></span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="best-channel-item mb-4">
+                        <div class="text-muted small mb-1">Par nombre de réservations</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0 text-primary"><?= e($channels['best_channel']['by_bookings']['channel']) ?></h4>
+                            <span class="badge badge-primary badge-lg"><?= $channels['best_channel']['by_bookings']['bookings'] ?> résa.</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="best-channel-item">
+                        <div class="text-muted small mb-1">Par valeur moyenne</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0 text-info"><?= e($channels['best_channel']['by_avg_value']['channel']) ?></h4>
+                            <span class="badge badge-info badge-lg"><?= $channels['best_channel']['by_avg_value']['avg_value_formatted'] ?></span>
+                        </div>
+                    </div>
+                    <?php else: ?>
+                    <p class="text-muted text-center">Aucune donnée disponible</p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Channel Trends -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-line-chart"></i> Évolution par canal (6 derniers mois)</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 300px; position: relative;">
+                        <canvas id="channelTrendsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Channel Distribution Pie -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-pie-chart"></i> Répartition des revenus</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 250px; position: relative;">
+                        <canvas id="revenueDistributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-pie-chart"></i> Répartition des réservations</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 250px; position: relative;">
+                        <canvas id="bookingsDistributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var channelColors = {
+        'Vacaloc': '#3498db',
+        'Airbnb': '#e74c3c',
+        'Bookings.com': '#17a2b8',
+        'Vrbo': '#f1c40f'
+    };
+
+    // Channel Trends Chart
+    var trendsCtx = document.getElementById('channelTrendsChart');
+    if (trendsCtx) {
+        var trendsData = <?= json_encode($channels['channel_trends'] ?? []) ?>;
+        var channelNames = ['Vacaloc', 'Airbnb', 'Bookings.com', 'Vrbo'];
+
+        var datasets = channelNames.map(function(channel) {
+            return {
+                label: channel,
+                data: trendsData.map(d => d[channel] || 0),
+                borderColor: channelColors[channel],
+                backgroundColor: 'transparent',
+                tension: 0.4
+            };
+        });
+
+        var channelTrendsChart = new Chart(trendsCtx, {
+            type: 'line',
+            data: {
+                labels: trendsData.map(d => d.month),
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('channelTrendsChart', channelTrendsChart);
+    }
+
+    // Revenue Distribution Chart
+    var revenueCtx = document.getElementById('revenueDistributionChart');
+    if (revenueCtx) {
+        var performanceData = <?= json_encode($channels['channel_performance'] ?? []) ?>;
+        var revenueDistributionChart = new Chart(revenueCtx, {
+            type: 'doughnut',
+            data: {
+                labels: performanceData.map(d => d.channel),
+                datasets: [{
+                    data: performanceData.map(d => d.revenue),
+                    backgroundColor: performanceData.map(d => channelColors[d.channel] || '#95a5a6')
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('revenueDistributionChart', revenueDistributionChart);
+    }
+
+    // Bookings Distribution Chart
+    var bookingsCtx = document.getElementById('bookingsDistributionChart');
+    if (bookingsCtx) {
+        var performanceData = <?= json_encode($channels['channel_performance'] ?? []) ?>;
+        var bookingsDistributionChart = new Chart(bookingsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: performanceData.map(d => d.channel),
+                datasets: [{
+                    data: performanceData.map(d => d.bookings),
+                    backgroundColor: performanceData.map(d => channelColors[d.channel] || '#95a5a6')
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('bookingsDistributionChart', bookingsDistributionChart);
+    }
+})();
+</script>

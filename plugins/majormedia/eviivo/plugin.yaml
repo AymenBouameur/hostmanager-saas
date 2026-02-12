@@ -1,0 +1,6 @@
+plugin:
+    name: "majormedia.eviivo::lang.plugin.name"
+    description: "majormedia.eviivo::lang.plugin.description"
+    author: "@MajorMedia"
+    icon: oc-icon-adjust
+    homepage: ""

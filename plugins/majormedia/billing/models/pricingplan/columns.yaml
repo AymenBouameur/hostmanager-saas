@@ -1,0 +1,35 @@
+columns:
+    id:
+        label: ID
+        type: text
+    name:
+        label: Name
+        type: text
+        searchable: true
+    max_listings:
+        label: Max Listings
+        type: text
+    max_rooms:
+        label: Max Rooms
+        type: text
+    max_users:
+        label: Max Users
+        type: text
+    monthly_price:
+        label: Monthly
+        type: text
+    annual_price:
+        label: Annual
+        type: text
+    trial_days:
+        label: Trial Days
+        type: text
+    support_level:
+        label: Support
+        type: text
+    is_active:
+        label: Active
+        type: switch
+    created_at:
+        label: Created
+        type: datetime

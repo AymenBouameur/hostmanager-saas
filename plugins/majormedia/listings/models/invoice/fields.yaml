@@ -1,0 +1,31 @@
+fields:
+    listing:
+        label: "Listing "
+        span: auto
+        type: relation
+        select: title
+    invoice_number:
+        label: "Invoice number"
+        span: auto
+        type: text
+    issued_date:
+        label: "Issued date"
+        span: auto
+        type: datepicker
+
+tabs:
+    fields:
+        document:
+            label: "Pièce jointe "
+            type: fileupload
+            mode: file
+            thumbOptions:
+                mode: crop
+                offset:
+                    - 0
+                    - 0
+                quality: 90
+                sharpen: 0
+                interlace: false
+                extension: auto
+            tab: "Pièce jointe"

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Releve Des Reservations</title>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div>
+            <span>Agadir</span>
+            <div class="logo">
+                <!-- <img src="{{ 'assets/logo.svg' | media }}" alt="Logo" width="102" height="63" /> -->
+            </div>
+            <span>{{ 'now' | date('d/m/Y') }}</span>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Siège social: Marina 23-147, étage 4 IMM 23, La Marina Port de plaisance AV MED V - 80000 Agadir
+        </p>
+        <p>
+            IF 37513634 - CNS 1534467 - TP 48301011 - RC 40317 SARL au capital de 100.000,00 ICE 002213420000039
+        </p>
+    </footer>
+
+
+</body>
+
+</html>

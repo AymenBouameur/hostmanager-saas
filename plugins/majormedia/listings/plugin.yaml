@@ -1,0 +1,63 @@
+plugin:
+    name: "majormedia.listings::lang.plugin.name"
+    description: "majormedia.listings::lang.plugin.description"
+    author: "@MajorMedia"
+    icon: oc-icon-list
+    homepage: ""
+
+permissions:
+    "majormedia.listings::plugin.manage":
+        tab: "majormedia.listings::lang.permissions.tab_label"
+        label: "majormedia.listings::lang.manage.plugin.title"
+    "majormedia.listings::listings.manage":
+        tab: "majormedia.listings::lang.permissions.tab_label"
+        label: "Gérer les propriétés"
+    "majormedia.listings::listings.export_csv":
+        tab: "majormedia.listings::lang.permissions.tab_label"
+        label: "Exporter les propriétés en CSV"
+    "majormedia.listings::listings.sync":
+        tab: "majormedia.listings::lang.permissions.tab_label"
+        label: "Synchroniser les propriétés"
+    "majormedia.listings::statements.manage":
+        tab: "majormedia.listings::lang.permissions.tab_label"
+        label: "Gérer les relevés"
+
+    "majormedia.listings::invoices.manage":
+        tab: "majormedia.listings::lang.permissions.tab_label"
+        label: "Gérer les devis"
+
+    "majormedia.listings::expenses.manage":
+        tab: "majormedia.listings::lang.permissions.tab_label"
+        label: "Gérer les dépenses"
+navigation:
+    listings:
+        label: "majormedia.listings::lang.menu.listings.label"
+        url: majormedia/listings/listings
+        iconSvg: /plugins/majormedia/listings/assets/icons/properties.svg
+        permissions:
+            - "majormedia.listings::listings.manage"
+        sideMenu:
+            listings:
+                label: "majormedia.listings::lang.menu.listings.label"
+                url: majormedia/listings/listings
+                iconSvg: /plugins/majormedia/listings/assets/icons/properties.png
+                permissions:
+                    - "majormedia.listings::listings.manage"
+            expenses:
+                label: "majormedia.listings::lang.menu.expenses.label"
+                url: majormedia/listings/expenses
+                iconSvg: /plugins/majormedia/listings/assets/icons/expenses.png
+                permissions:
+                    - "majormedia.listings::listings.manage"
+            statements:
+                label: "majormedia.listings::lang.menu.statements.label"
+                url: majormedia/listings/statements
+                iconSvg: /plugins/majormedia/listings/assets/icons/statements.png
+                permissions:
+                    - "majormedia.listings::listings.manage"
+            invoices:
+                label: "majormedia.listings::lang.menu.invoices.label"
+                url: majormedia/listings/invoices
+                iconSvg: /plugins/majormedia/listings/assets/icons/statements.png
+                permissions:
+                    - "majormedia.listings::listings.manage"

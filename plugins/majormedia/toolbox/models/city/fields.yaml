@@ -1,0 +1,43 @@
+fields:
+  name:
+    label: Nom
+    span: auto
+    type: text
+  state:
+    label: Région
+    type: relation
+    nameFrom: name
+    span: auto
+    emptyOption: "--"
+  is_active:
+    label: État
+    span: auto
+    default: 1
+    on: Oui
+    off: Non
+    type: switch
+  is_pinned:
+    label: Afficher en priorité
+    span: auto
+    default: 0
+    on: Oui
+    off: Non
+    type: switch
+tabs:
+  fields:
+    images:
+      label: Images
+      type: fileupload
+      mode: image
+      imageHeight: 260
+      imageWidth: 260
+      thumbOptions:
+        mode: crop
+        offset:
+          - 0
+          - 0
+        quality: 90
+        sharpen: 0
+        interlace: false
+        extension: auto
+      tab: Galerie

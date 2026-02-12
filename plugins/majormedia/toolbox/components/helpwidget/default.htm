@@ -1,0 +1,18 @@
+{% if __SELF__.info %}
+<ul>
+  {% for inf in __SELF__.info %}
+
+    {% if inf.type == 'text' %}
+      <li><i class="fa fa-envelope mr-2"></i>{{ inf.value|raw }}</li>
+
+    {% elseif inf.type == 'email' %}
+      <li><i class="fa fa-envelope mr-2"></i>{{ inf.value|mailto }}</li>
+
+    {% elseif inf.type == 'phone' %}
+      <li><a href="tel:{{ inf.value }}"><i class="fa fa-phone mr-2"></i>{{ inf.value }}</a></li>
+
+    {% endif %}
+
+  {% endfor %}
+</ul>
+{% endif %}

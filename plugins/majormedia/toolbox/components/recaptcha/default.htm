@@ -1,0 +1,13 @@
+{% if __SELF__.enable_recaptcha %}
+
+  {% put scripts %}
+    <script>
+        const RECAPTCHA_SITE_KEY = '{{ __SELF__.recaptcha_site_key }}';
+
+        /*$(document).on('ajaxPromise', function(event, context) {
+            console.log(generateNewToken());
+        })*/
+    </script>
+  {% endput %}
+
+{% endif %}

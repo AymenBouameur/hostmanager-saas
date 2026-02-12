@@ -1,0 +1,96 @@
+<div class="dashboard-filters card mb-4">
+    <div class="card-body">
+        <form id="filterForm">
+            <div class="row align-items-end">
+                <!-- Period Preset -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Période</label>
+                        <select name="period" class="form-control" id="periodSelect">
+                            <option value="today" <?= $filters['period'] == 'today' ? 'selected' : '' ?>>Aujourd'hui</option>
+                            <option value="week" <?= $filters['period'] == 'week' ? 'selected' : '' ?>>Cette semaine</option>
+                            <option value="month" <?= $filters['period'] == 'month' ? 'selected' : '' ?>>Ce mois</option>
+                            <option value="year" <?= $filters['period'] == 'year' ? 'selected' : '' ?>>Cette année</option>
+                            <option value="custom" <?= $filters['period'] == 'custom' ? 'selected' : '' ?>>Personnalisé</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Date From -->
+                <div class="col-md-2 custom-date-field" style="<?= $filters['period'] != 'custom' ? 'display:none;' : '' ?>">
+                    <div class="form-group">
+                        <label>Date début</label>
+                        <input type="date" name="date_from" class="form-control"
+                               value="<?= $filters['date_from']->format('Y-m-d') ?>">
+                    </div>
+                </div>
+
+                <!-- Date To -->
+                <div class="col-md-2 custom-date-field" style="<?= $filters['period'] != 'custom' ? 'display:none;' : '' ?>">
+                    <div class="form-group">
+                        <label>Date fin</label>
+                        <input type="date" name="date_to" class="form-control"
+                               value="<?= $filters['date_to']->format('Y-m-d') ?>">
+                    </div>
+                </div>
+
+                <!-- Granularity -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Granularité</label>
+                        <select name="granularity" class="form-control">
+                            <option value="daily" <?= $filters['granularity'] == 'daily' ? 'selected' : '' ?>>Journalier</option>
+                            <option value="weekly" <?= $filters['granularity'] == 'weekly' ? 'selected' : '' ?>>Hebdomadaire</option>
+                            <option value="monthly" <?= $filters['granularity'] == 'monthly' ? 'selected' : '' ?>>Mensuel</option>
+                            <option value="yearly" <?= $filters['granularity'] == 'yearly' ? 'selected' : '' ?>>Annuel</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Listing -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Bien</label>
+                        <select name="listing_id" class="form-control" id="listingSelect">
+                            <option value="">Tous les biens</option>
+                            <?php foreach ($listings as $listing): ?>
+                                <option value="<?= e($listing['id']) ?>" <?= $filters['listing_id'] == $listing['id'] ? 'selected' : '' ?>>
+                                    <?= e($listing['title']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Channel -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Canal</label>
+                        <select name="channel_id" class="form-control" id="channelSelect">
+                            <option value="">Tous les canaux</option>
+                            <?php foreach ($channels as $channel): ?>
+                                <option value="<?= e($channel['id']) ?>" <?= $filters['channel_id'] == $channel['id'] ? 'selected' : '' ?>>
+                                    <?= e($channel['label']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <div class="btn-group btn-block">
+                            <button type="submit" class="btn btn-primary" id="applyFiltersBtn">
+                                <i class="icon-check"></i> Appliquer
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="resetFiltersBtn">
+                                <i class="icon-refresh"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

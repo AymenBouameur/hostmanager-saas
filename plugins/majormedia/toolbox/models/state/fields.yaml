@@ -1,0 +1,40 @@
+fields:
+    name:
+        label: Nom
+        span: auto
+        required: 1
+        type: text
+    country:
+        label: Pays
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: '--'
+        span: auto
+        required: 1
+        type: relation
+    code:
+        label: Code
+        span: auto
+        required: 1
+        type: text
+    lng:
+        label: Longitude
+        span: auto
+        type: text
+    lat:
+        label: Latitude
+        span: auto
+        type: text
+    is_active:
+        label: Activé
+        span: auto
+        default: 1
+        on: Oui
+        off: Non
+        type: switch
+    is_pinned:
+        label: 'Mise en avant'
+        span: auto
+        on: Oui
+        off: Non
+        type: switch

@@ -1,0 +1,51 @@
+columns:
+    id:
+        label: '#'
+        type: number
+        searchable: true
+        sortable: true
+    country:
+        label: Pays
+        type: number
+        searchable: true
+        sortable: true
+        select: name
+        relation: country
+    name:
+        label: Nom
+        type: text
+        searchable: true
+        sortable: true
+    code:
+        label: Code
+        type: text
+        searchable: true
+        sortable: true
+    lat:
+        label: Lat.
+        type: text
+        searchable: true
+        sortable: true
+    lng:
+        label: Lng.
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'Créé le'
+        type: datetime
+        invisible: true
+        sortable: true
+    updated_at:
+        label: 'Modifié le'
+        type: datetime
+        invisible: true
+        sortable: true
+    is_active:
+        label: Activé
+        type: switch
+        sortable: true
+    is_pinned:
+        label: 'Mise en avant'
+        type: switch
+        sortable: true

@@ -1,0 +1,17 @@
+# ===================================
+#  Rest Behavior Config
+# ===================================
+
+# Allowed Rest Actions
+allowedActions:
+  index:
+      pageSize: 10
+      # relations:
+      #   - listing
+  #store:
+  show:
+  #update:
+  #destroy:
+
+# Model Class name
+modelClass: MajorMedia\Bookings\Models\Booking

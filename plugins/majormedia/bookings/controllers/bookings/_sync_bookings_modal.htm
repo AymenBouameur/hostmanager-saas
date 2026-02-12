@@ -1,0 +1,58 @@
+<form id="syncBookingsForm">
+    <div class="modal-body">
+        <p>Voulez-vous synchroniser les réservations pour un mois spécifique ?</p>
+
+        <div class="form-group">
+            <label for="sync-bookings-property">Choisir une propriété (optionnel)</label>
+            <select id="sync-bookings-property" name="listing_id" class="form-control select2-search">
+                <option value="">-- Toutes les propriétés --</option>
+                <?php foreach ($listings as $listing): ?>
+                <option value="<?= $listing->id ?>">
+                    <?= e($listing->title) ?>
+                </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sync-bookings-month">Choisir un mois (optionnel)</label>
+            <select id="sync-bookings-month" name="month" class="form-control">
+                <option value="">-- Sélectionner un mois --</option>
+                <option value="1">Janvier</option>
+                <option value="2">Février</option>
+                <option value="3">Mars</option>
+                <option value="4">Avril</option>
+                <option value="5">Mai</option>
+                <option value="6">Juin</option>
+                <option value="7">Juillet</option>
+                <option value="8">Août</option>
+                <option value="9">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Décembre</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="popup">
+            Annuler
+        </button>
+
+        <button type="button" class="btn btn-primary" data-request="onSyncBookings"
+            data-request-form="#syncBookingsForm" data-stripe-load-indicator>
+            Lancer la synchronisation
+        </button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('#sync-bookings-property').select2({
+            placeholder: '-- Toutes les propriétés --',
+            allowClear: true,
+            width: '100%',
+            dropdownParent: $('#sync-bookings-property').parent()
+        });
+    });
+</script>

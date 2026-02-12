@@ -1,0 +1,10 @@
+name: Cities
+form: $/majormedia/toolbox/models/city/fields.yaml
+modelClass: MajorMedia\ToolBox\Models\City
+defaultRedirect: majormedia/toolbox/cities
+create:
+  redirect: "majormedia/toolbox/cities/update/:id"
+  redirectClose: majormedia/toolbox/cities
+update:
+  redirect: majormedia/toolbox/cities
+  redirectClose: majormedia/toolbox/cities

@@ -1,0 +1,8 @@
+bookings:
+    label: bookings
+    manage:
+        form: $/majormedia/bookings/models/booking/fields.yaml
+        list: $/majormedia/bookings/models/booking/columns.yaml
+    view:
+        list: $/majormedia/bookings/models/booking/columns.yaml
+        toolbarButtons: create|delete

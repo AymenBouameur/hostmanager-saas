@@ -1,0 +1,50 @@
+,Datacom 2024 Nov All Models Price List(VAT not included),,,,,,,,,
+SKU,Image,Ref Fournisseur,Nom,PVP HT,Catégorie
+SFP-10G-iLR,,02311BJJ,"Optical Transceiver,SFP+,9.8G,Single-mode Module(1310nm,1.4km,LC)",1238,"Module SFP, Accessoires Réseau et optique"
+SFP+STACK-CU0M5,,02311VGK,SFP+ High speed dedicated stack cable-0.5m,661,"Module SFP, Accessoires Réseau et optique"
+SFP+STACK-CU1M5,,02311VGN,SFP+ High speed dedicated stack cable-1.5m,683,"Module SFP, Accessoires Réseau et optique"
+SFP-1000BaseT,,02314171,"Electrical Transceiver,SFP,GE,Electrical Interface
+Module(100m,RJ45)",1067,"Module SFP, Accessoires Réseau et optique"
+SFP-GE-LX-SM1310,,02315200,"Optical Transceiver,eSFP,GE,Single-mode Module(1310nm,10km,LC)",640,"Module SFP, Accessoires Réseau et optique"
+eSFP-GE-SX-MM850,,02315204,"Optical Transceiver,eSFP,GE,Multi-mode Module(850nm,0.55km,LC)",341,"Module SFP, Accessoires Réseau et optique"
+eSFP-FE-LX-SM1310,,02315205,"Optical Transceiver,eSFP,100M/155M,Single-mode Module(1310nm,15km,LC)",320,"Module SFP, Accessoires Réseau et optique"
+S-SFP-GE-LH40-SM1310,,02317346,"Optical Transceiver,eSFP,GE,Single-mode Module(1310nm,40km,LC)",2027,"Module SFP, Accessoires Réseau et optique"
+S-SFP-GE-LH40-SM1550,,02317347,"Optical Transceiver,eSFP,GE,Single-mode Module(1550nm,40km,LC)",2049,"Module SFP, Accessoires Réseau et optique"
+S-SFP-GE-LH80-SM1550,,02317348,"Optical Transceiver,eSFP,GE,Single-mode Module(1550nm,80km,LC)",3735,"Module SFP, Accessoires Réseau et optique"
+OMXD30000,,02318169,"Optical Transceiver,SFP+,10G,Multi-mode Module(850nm,0.3km,LC)",1366,"Module SFP, Accessoires Réseau et optique"
+OSX010000,,02318170,"Optical Transceiver,SFP+,10G,Single-mode Module(1310nm,10km,LC)",3671,"Module SFP, Accessoires Réseau et optique"
+OGSC10DD0,,02310LJH,"Optical Transceiver,eSFP,1310nm,1.25Gb/s,-9.5~-3dBm,- 20dBm,LC,single-mode,10km",1067,"Module SFP, Accessoires Réseau et optique"
+SFP-GE-BX-U1-I,,02311DMF,"Optical Transceiver,SFP,GE,BIDI Single-mode Module(TX1310/RX1490,10km,LC)",2156,"Module SFP, Accessoires Réseau et optique"
+OGSM01880,,02310LJG,"Optical Transceiver,eSFP, 850nm,1.25Gb/s,-10dBm,-2.5dBm,- 17dBm,LC,multi-mode,0.55km",469,"Module SFP, Accessoires Réseau et optique"
+HW-120200U1W,,02312WSY,AC-DC 24W/12V Adaptor(US),192,"Adaptateur et autre, Accessoires Réseau et optique"
+HW-120200B1W,,02312WTB,AC-DC 24W/12V Adaptor(UK),192,"Adaptateur et autre, Accessoires Réseau et optique"
+HW-120200E5W,,02312WTA,AC-DC 24W/12V Adaptor(EU),192,"Adaptateur et autre, Accessoires Réseau et optique"
+AD-560062T0E,,02221407,"AD Adapter-25degC-50degC-90V-290V-56V/35W-C13/RI45-POE
+ADAPTER",533,"Adaptateur et autre, Accessoires Réseau et optique"
+KPDLC,,14990224,"Patch Cord,LC/PC,LC/PC,Multi-mode,10m,A1B,2mm",213,"Jarretière, Accessoires Réseau et optique"
+PSIGART00,-,19020303,"Signal Arrester,6KA,100V,100W,1000MB/s,RJ45-POE",426,"Adaptateur et autre, Accessoires Réseau et optique"
+WLA220W01,-,19020062,"Power Lightning Arrester, 20KA,1.8KV,220V,Terminal, Guideway
+Mounting-WLA220W01-20kA",448,"Adaptateur et autre, Accessoires Réseau et optique"
+CPGND0102,-,25030188,"Electric Cable,450V/750V,60227 IEC 02(RV),4mm^2, Yellow/Green, 36A,CCC,CE",21,"Adaptateur et autre, Accessoires Réseau et optique"
+PAC80S12-CN,,02131835,"80W AC Power Module(66mm Width Case,Left to Right)",917,"Adaptateur et autre, Accessoires Réseau et optique"
+PAC180S12-CN,,02131754,180W AC Power Module,1558,"Adaptateur et autre, Accessoires Réseau et optique"
+PAC600S12-PB,,02313BUS,"600W AC Power Module(Back to Front,Power panel side exhaust)",2454,"Adaptateur et autre, Accessoires Réseau et optique"
+PDC1K2S12-CE,,02270205,1200W DC Power Module,5614,"Adaptateur et autre, Accessoires Réseau et optique"
+SFP-25G-SR-DM,-,02315DFK,"25GBase-SR Optical Transceiver-SFP28-25G Multi- mode(850nm,0.1km,LC,DM)",2668,"Module SFP, Accessoires Réseau et optique"
+QSFP-100G-SR4-DM,-,02315DFL,"100GBase-SR4 Optical Transceiver,QSFP28,100G,Multi- mode(850nm,0.1km,MPO,DM)",6638,"Module SFP, Accessoires Réseau et optique"
+LE2MGSC40DE0,-,02310KVV,"HUAWEI LE2MGSC40ED0,Optical Transceiver,eSFP,GE,BIDI Single-mode
+Module(TX1310/RX1490,40km,LC)",1857,"Module SFP, Accessoires Réseau et optique"
+OGSC40DD0,-,02310LJJ,"HUAWEI OGSC40DD0,Optical transceiver,eSFP(industry),1310nm,1.25Gb/s,-4.5dBm,3dBm,-
+22.5dBm,LC,single-mode,40km",3564,"Module SFP, Accessoires Réseau et optique"
+SFP-1000BaseT-G2,-,02314BDD,"Module SFP-1000BaseT- G2,Electrical Transceiver,SFP,GE,Electrical Interface
+Module(100m,RJ45)",704,"Module SFP, Accessoires Réseau et optique"
+SFP-2.5G-FR,-,02314LBD,"2.5G-FR/1000BASE-LX10 Optical
+Transceiver,SFP,2.5GE/GE,Single-Mode Module(1310nm,2km/10km,LC)",789,"Module SFP, Accessoires Réseau et optique"
+SFP-2.5G-SR-I,-,02314LBB,"2.5G-SR Optical Transceiver,SFP,2.5GE,Multi-mode Module(850nm,0.3km,LC)",619,"Module SFP, Accessoires Réseau et optique"
+eSFP-2.5G-iLR-BXD1,-,02314VYF,"Optical transceiver,eSFP,2.5G/GE,BIDI Single-mode Module(TX1490nm/RX1310nm,2km,LC)",576,"Module SFP, Accessoires Réseau et optique"
+OSX010000,-,02313URK,"HUAWEI LE0M0XS1DD,Optical Transceiver,SFP+,10G,Single-mode Module(1310nm,10km,LC)",3202,"Module SFP, Accessoires Réseau et optique"
+SFP-10G-LR-I,-,02313ABG,"Module SFP-10G-LR-I,Optical Transceiver,SFP+,10G,Single-mode Module(1310nm,10km,LC,Industry)",3202,"Module SFP, Accessoires Réseau et optique"
+SFP-10G-BXU1,-,02310QBJ,"10GBase,BIDI Optical Transceiver,SFP,10G,Single-mode Module(TX1270nm/RX1330nm,10km,LC)",3821,"Module SFP, Accessoires Réseau et optique"
+SFP-10G-BXD1,-,02310QDT,"10GBase,BIDI Optical Transceiver,SFP,10G,Single-mode Module(TX1330nm/RX1270nm,10km,LC)",3821,"Module SFP, Accessoires Réseau et optique"
+OMXD30000,-,02313URC,"HUAWEI LE0M0XSM88,Optical Transceiver,SFP+,10G,Multi-mode Module(850nm,0.3km,LC)",1195,"Module SFP, Accessoires Réseau et optique"
+SFP-10G-USR,-,02313URN,"Module SFP-10G-USR,10GBase-USR Optical Transceiver,SFP+,10G,Multi-mode Module(850nm,0.1km,LC)",448,"Module SFP, Accessoires Réseau et optique"

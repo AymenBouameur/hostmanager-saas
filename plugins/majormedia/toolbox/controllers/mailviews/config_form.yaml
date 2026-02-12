@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Mailview
+
+# Model Form Field configuration
+form: $/majormedia/toolbox/models/mailview/fields.yaml
+
+# Model Class name
+modelClass: MajorMedia\ToolBox\Models\Mailview
+
+# Default redirect location
+defaultRedirect: majormedia/toolbox/mailviews
+
+# Create page
+create:
+  title: Create Mailview
+  redirect: majormedia/toolbox/mailviews/update/:id
+  redirectClose: majormedia/toolbox/mailviews
+
+# Update page
+update:
+  title: Edit Mailview
+  redirect: majormedia/toolbox/mailviews
+  redirectClose: majormedia/toolbox/mailviews
+
+# Preview page
+preview:
+  title: Preview Mailview

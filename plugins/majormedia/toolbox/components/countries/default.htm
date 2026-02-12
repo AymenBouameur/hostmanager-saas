@@ -1,0 +1,18 @@
+{% if __SELF__.getCountries is not empty %}
+  {% set fieldname = __SELF__.property('fieldname') %}
+  {% set ajax = __SELF__.property('ajax') %}
+  {% set required = __SELF__.property('required') %}
+  {% set dependsOnCities = __SELF__.property('dependsOnCities') %}
+
+  <span class="text-danger" data-validate-for="{{ fieldname }}"></span>
+  {% if ajax %}
+    {# TODO #}
+  {% else %}
+    <select {{ dependsOnCities ? ('data-request="'~__SELF__~'::onChangeCountry"')|raw }} class="form-control" name="{{ fieldname }}">
+      <option value="0">Choisissez un pays{{ required ? ' (*)' }}</option>
+      {% for c in __SELF__.getCountries %}
+        <option value="{{ c.id }}" {{ selected_country_id == c.id ? 'selected' }}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  {% endif %}
+{% endif %}

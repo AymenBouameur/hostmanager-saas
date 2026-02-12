@@ -1,0 +1,24 @@
+columns:
+    id:
+        label: "ID"
+        searchable: true
+    name:
+        label: "Nom"
+        searchable: true
+    surname:
+        label: "Prénom"
+        searchable: true
+
+    # username:
+    #     label: "Nom d'utilisateur"
+    #     searchable: true
+    email:
+        label: "Email"
+        searchable: true
+    phone:
+        label: "Téléphone"
+        searchable: true
+        type: text
+    otp_code:
+        label: "OTP"
+        searchable: false

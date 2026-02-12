@@ -1,0 +1,85 @@
+<div class="kpi-cards-container">
+    <div class="row">
+        <!-- Total Bookings -->
+        <div class="col-md">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="icon-calendar-check-o text-primary"></i></div>
+                <div class="kpi-value <?= $kpis['total_bookings']['trend'] == 'up' ? 'text-success' : 'text-danger' ?>">
+                    <?= number_format($kpis['total_bookings']['value']) ?>
+                </div>
+                <div class="kpi-label">Réservations</div>
+                <div class="kpi-evolution <?= $kpis['total_bookings']['trend'] == 'up' ? 'positive' : 'negative' ?>">
+                    <?php if ($kpis['total_bookings']['trend'] == 'up'): ?>
+                        <i class="icon-arrow-up"></i> +<?= abs($kpis['total_bookings']['evolution']) ?>%
+                    <?php else: ?>
+                        <i class="icon-arrow-down"></i> <?= $kpis['total_bookings']['evolution'] ?>%
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Revenue -->
+        <div class="col-md">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="icon-euro text-success"></i></div>
+                <div class="kpi-value <?= $kpis['total_revenue']['trend'] == 'up' ? 'text-success' : 'text-danger' ?>">
+                    <?= $kpis['total_revenue']['formatted'] ?>
+                </div>
+                <div class="kpi-label">Revenus</div>
+                <div class="kpi-evolution <?= $kpis['total_revenue']['trend'] == 'up' ? 'positive' : 'negative' ?>">
+                    <?php if ($kpis['total_revenue']['trend'] == 'up'): ?>
+                        <i class="icon-arrow-up"></i> +<?= abs($kpis['total_revenue']['evolution']) ?>%
+                    <?php else: ?>
+                        <i class="icon-arrow-down"></i> <?= $kpis['total_revenue']['evolution'] ?>%
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Properties -->
+        <div class="col-md">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="icon-home text-info"></i></div>
+                <div class="kpi-value text-info">
+                    <?= number_format($kpis['active_properties']['value']) ?>
+                </div>
+                <div class="kpi-label">Biens actifs</div>
+                <div class="kpi-evolution">
+                    <small><?= $kpis['active_properties']['percentage'] ?>% du total (<?= $kpis['active_properties']['total'] ?>)</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cancellation Rate -->
+        <div class="col-md">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="icon-times-circle text-warning"></i></div>
+                <div class="kpi-value <?= $kpis['cancellation_rate']['value'] <= 10 ? 'text-success' : 'text-danger' ?>">
+                    <?= $kpis['cancellation_rate']['value'] ?>%
+                </div>
+                <div class="kpi-label">Taux annulation</div>
+                <div class="kpi-evolution <?= $kpis['cancellation_rate']['trend'] == 'up' ? 'positive' : 'negative' ?>">
+                    <small><?= $kpis['cancellation_rate']['count'] ?> annulation(s)</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Average Booking Value -->
+        <div class="col-md">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="icon-line-chart text-purple"></i></div>
+                <div class="kpi-value <?= $kpis['avg_booking_value']['trend'] == 'up' ? 'text-success' : 'text-danger' ?>">
+                    <?= $kpis['avg_booking_value']['formatted'] ?>
+                </div>
+                <div class="kpi-label">Valeur moy.</div>
+                <div class="kpi-evolution <?= $kpis['avg_booking_value']['trend'] == 'up' ? 'positive' : 'negative' ?>">
+                    <?php if ($kpis['avg_booking_value']['trend'] == 'up'): ?>
+                        <i class="icon-arrow-up"></i> +<?= abs($kpis['avg_booking_value']['evolution']) ?>%
+                    <?php else: ?>
+                        <i class="icon-arrow-down"></i> <?= $kpis['avg_booking_value']['evolution'] ?>%
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

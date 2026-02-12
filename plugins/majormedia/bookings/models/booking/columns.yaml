@@ -1,0 +1,86 @@
+columns:
+    id:
+        label: id
+        type: number
+    listing:
+        label: Propriété
+        relation: listing
+        select: title
+    reference:
+        label: Réference
+        type: text
+        searchable: true
+    order_reference:
+        label: Order Réference
+        type: text
+        searchable: true
+    customer:
+        label: Locataire
+        type: text
+        searchable: true
+    check_in:
+        label: Date d'arrivé
+        type: text
+    check_out:
+        label: Date de départ
+        type: text
+
+    gross_amount:
+        label: Montant Brut
+        span: row
+        cssClass: col-lg-3
+        type: number
+
+    net_amount:
+        label: Montant Net
+        span: row
+        cssClass: col-lg-3
+        type: number
+
+    tax:
+        label: Taxe
+        span: row
+        cssClass: col-lg-3
+        type: number
+
+    clearning_fee:
+        label: Frais de Nettoyage
+        span: row
+        cssClass: col-lg-3
+        type: number
+
+    vacaloc_commission:
+        label: Commission Vacaloc
+        span: row
+        cssClass: col-lg-3
+        type: number
+
+    ota_commission:
+        label: Commission OTA
+        span: row
+        cssClass: col-lg-3
+        type: number
+    
+    owner_profit:
+        label: Bénéfice Propriétaire
+        span: row
+        cssClass: col-lg-3
+        type: number
+
+    total_amount_order:
+        label: Total de la Commande
+        span: row
+        cssClass: col-lg-3
+        type: number
+    canal_alias:
+        label: Canal
+        type: text
+    is_canceled:
+        label: Statut d'annulation
+        type: text
+    created_at:
+        label: Créé le
+        type: datetime
+    updated_at:
+        label: Mis à jour le
+        type: datetime

@@ -1,0 +1,233 @@
+<div class="tab-overview">
+    <!-- Quick Stats Row -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="stat-card success">
+                <div class="stat-icon"><i class="icon-euro"></i></div>
+                <div class="stat-value"><?= $revenue['owner_profit']['formatted'] ?? '0,00 €' ?></div>
+                <div class="stat-label">Profit propriétaire</div>
+                <div class="stat-evolution <?= ($revenue['owner_profit']['trend'] ?? 'up') == 'up' ? 'up' : 'down' ?>">
+                    <?= ($revenue['owner_profit']['evolution'] ?? 0) >= 0 ? '+' : '' ?><?= $revenue['owner_profit']['evolution'] ?? 0 ?>%
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card info">
+                <div class="stat-icon"><i class="icon-bed"></i></div>
+                <div class="stat-value"><?= $bookings['avg_stay_duration']['value'] ?? 0 ?></div>
+                <div class="stat-label">Nuits en moyenne</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card warning">
+                <div class="stat-icon"><i class="icon-percent"></i></div>
+                <div class="stat-value"><?= $revenue['total_commissions']['formatted'] ?? '0,00 €' ?></div>
+                <div class="stat-label">Commissions totales</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="icon-money"></i></div>
+                <div class="stat-value"><?= $revenue['cleaning_fees']['formatted'] ?? '0,00 €' ?></div>
+                <div class="stat-label">Frais de ménage</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Revenue Chart -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-line-chart"></i> Évolution des revenus et réservations</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 280px; position: relative;">
+                        <canvas id="overviewChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channel Distribution -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-pie-chart"></i> Répartition par canal</h5>
+                </div>
+                <div class="card-body">
+                    <div style="height: 200px; position: relative;">
+                        <canvas id="channelPieChart"></canvas>
+                    </div>
+                    <ul class="list-unstyled mt-3">
+                        <?php foreach ($bookings['bookings_by_channel'] ?? [] as $channel): ?>
+                        <li class="d-flex justify-content-between mb-2">
+                            <span><?= e($channel['channel']) ?></span>
+                            <span class="badge badge-secondary"><?= $channel['count'] ?> (<?= $channel['percentage'] ?>%)</span>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Upcoming Check-ins -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-calendar"></i> Prochaines arrivées</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Bien</th>
+                                <th>Arrivée</th>
+                                <th>Canal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach (array_slice($bookings['upcoming_checkins'] ?? [], 0, 5) as $booking): ?>
+                            <tr>
+                                <td><strong><?= e($booking['customer']) ?></strong></td>
+                                <td><small><?= e($booking['listing']) ?></small></td>
+                                <td><?= e($booking['check_in']) ?></td>
+                                <td><span class="badge badge-info"><?= e($booking['channel']) ?></span></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($bookings['upcoming_checkins'])): ?>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">Aucune arrivée prévue</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Properties -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-trophy"></i> Top 5 Biens par revenus</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bien</th>
+                                <th class="text-right">Revenus</th>
+                                <th class="text-right">Résa.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach (array_slice($revenue['revenue_by_property'] ?? [], 0, 5) as $index => $property): ?>
+                            <tr>
+                                <td><span class="rank-badge"><?= $index + 1 ?></span></td>
+                                <td><?= e($property['title']) ?></td>
+                                <td class="text-right"><strong><?= $property['revenue_formatted'] ?></strong></td>
+                                <td class="text-right"><?= $property['bookings'] ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($revenue['revenue_by_property'])): ?>
+                            <tr>
+                                <td colspan="4" class="text-center text-muted">Aucune donnée disponible</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Overview Chart (Revenue + Bookings)
+    var overviewCtx = document.getElementById('overviewChart');
+    if (overviewCtx) {
+        var bookingsData = <?= json_encode($chartData['bookings'] ?? []) ?>;
+        var revenueData = <?= json_encode($chartData['revenue'] ?? []) ?>;
+
+        var overviewChart = new Chart(overviewCtx, {
+            type: 'line',
+            data: {
+                labels: bookingsData.map(d => d.date),
+                datasets: [
+                    {
+                        label: 'Revenus (€)',
+                        data: revenueData.map(d => d.value),
+                        borderColor: '#27ae60',
+                        backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                        fill: true,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Réservations',
+                        data: bookingsData.map(d => d.value),
+                        borderColor: '#3498db',
+                        backgroundColor: 'transparent',
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        beginAtZero: true,
+                        title: { display: true, text: 'Revenus (€)' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        beginAtZero: true,
+                        grid: { drawOnChartArea: false },
+                        title: { display: true, text: 'Réservations' }
+                    }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('overviewChart', overviewChart);
+    }
+
+    // Channel Pie Chart
+    var channelCtx = document.getElementById('channelPieChart');
+    if (channelCtx) {
+        var channelData = <?= json_encode($bookings['bookings_by_channel'] ?? []) ?>;
+        var channelPieChart = new Chart(channelCtx, {
+            type: 'doughnut',
+            data: {
+                labels: channelData.map(d => d.channel),
+                datasets: [{
+                    data: channelData.map(d => d.count),
+                    backgroundColor: ['#3498db', '#e74c3c', '#f1c40f', '#9b59b6']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+        if (typeof registerChart !== 'undefined') registerChart('channelPieChart', channelPieChart);
+    }
+})();
+</script>

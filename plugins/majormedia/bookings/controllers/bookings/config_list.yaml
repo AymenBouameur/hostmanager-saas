@@ -1,0 +1,13 @@
+list: $/majormedia/bookings/models/booking/columns.yaml
+modelClass: MajorMedia\Bookings\Models\Booking
+title: Bookings
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'majormedia/bookings/bookings/update/:id'
+filter: config_filter.yaml

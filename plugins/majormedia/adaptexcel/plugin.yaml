@@ -1,0 +1,6 @@
+plugin:
+    name: 'majormedia.bookings::lang.plugin.name'
+    description: 'majormedia.bookings::lang.plugin.description'
+    author: majormedia
+    icon: oc-icon-bookmark
+    homepage: ''

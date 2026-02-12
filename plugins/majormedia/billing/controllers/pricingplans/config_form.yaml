@@ -1,0 +1,10 @@
+name: Pricing Plans
+form: $/majormedia/billing/models/pricingplan/fields.yaml
+modelClass: MajorMedia\Billing\Models\PricingPlan
+defaultRedirect: majormedia/billing/pricingplans
+create:
+    redirect: "majormedia/billing/pricingplans/update/:id"
+    redirectClose: majormedia/billing/pricingplans
+update:
+    redirect: majormedia/billing/pricingplans
+    redirectClose: majormedia/billing/pricingplans

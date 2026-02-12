@@ -1,0 +1,272 @@
+tabs:
+
+  fields:
+
+    contact_name:
+      label: Nom de contact
+      type: text
+      span: auto
+      tab: Informations de contact
+
+    address:
+      label: Siège social
+      type: text
+      span: auto
+      tab: Informations de contact
+
+    contact_email:
+      label: E-mail
+      type: text
+      span: auto
+      tab: Informations de contact
+
+    contact_email_icon:
+      label: Icône E-mail
+      type: text
+      span: auto
+      default: 'fa fa-envelope'
+      tab: Informations de contact
+
+    contact_phone:
+      label: Tél de contact
+      type: text
+      span: auto
+      tab: Informations de contact
+
+    contact_phone_icon:
+      label: Icône Tél de contact
+      type: text
+      span: auto
+      default: 'fa fa-mobile'
+      tab: Informations de contact
+
+    contact_fix:
+      label: Fix. de contact
+      type: text
+      span: auto
+      tab: Informations de contact
+
+    contact_fix_icon:
+      label: Icône Fix. de contact
+      type: text
+      span: auto
+      default: 'fa fa-phone'
+      tab: Informations de contact
+
+    contact_fax:
+      label: Fax. de contact
+      type: text
+      span: auto
+      tab: Informations de contact
+
+    contact_fax_icon:
+      label: Icône Fax. de contact
+      type: text
+      span: auto
+      default: 'fa fa-fax'
+      tab: Informations de contact
+
+    horaire_travail:
+      label: Horaires de travail
+      type: text
+      span: auto
+      tab: Informations de contact
+
+    section_4logos:
+      label: Identité visuelle
+      type: section
+      span: full
+      tab: Informations de contact
+
+    logo:
+      label: Logo
+      type: fileupload
+      mode: image
+      span: auto
+      tab: Informations de contact
+
+    favicon:
+      label: Favicon
+      type: fileupload
+      mode: image
+      span: auto
+      tab: Informations de contact
+
+    form_contact_email:
+      label: E-mail
+      comment: Cet email sera notifié quand un utilisateur envoi un message depuis les formulaires du site.
+      type: text
+      span: auto
+      tab: Formulaires du site
+
+    form_contact_name:
+      label: Nom de contact
+      type: text
+      span: auto
+      tab: Formulaires du site
+
+    form_contact_notif_all_admins:
+      label: Notifier tous les administrateurs du site lorsqu'un message arrive ?
+      type: checkbox
+      default: false
+      span: full
+      tab: Formulaires du site
+
+    newsletter_enabled:
+      label: Newsletter Enabled ?
+      type: switch
+      default: 1
+      span: auto
+      tab: Newsletter
+
+    fb_link:
+      label: Facebook Link
+      type: text
+      span: auto
+      tab: Réseaux sociaux
+
+    yb_link:
+      label: YouTube Link
+      type: text
+      span: auto
+      tab: Réseaux sociaux
+
+    tw_link:
+      label: Twitter Link
+      type: text
+      span: auto
+      tab: Réseaux sociaux
+
+    li_link:
+      label: LinkedIn Link
+      type: text
+      span: auto
+      tab: Réseaux sociaux
+
+    pr_link:
+      label: Printerest Link
+      type: text
+      span: auto
+      tab: Réseaux sociaux
+
+    instagram_link:
+      label: Instagram Link
+      type: text
+      span: auto
+      tab: Réseaux sociaux
+
+    wapp_link:
+      label: WhatsApp
+      type: text
+      span: auto
+      tab: Réseaux sociaux
+
+    google_analytics:
+      label: Code google analytics
+      type: textArea
+      span: auto
+      tab: Code javascript
+
+    ### Recaptcha
+    recaptcha_site_key:
+      span: auto
+      label: Site key
+      comment: The site key is used to display the widget on your site.
+      default: ''
+      tab: Recaptcha
+    recaptcha_secret_key:
+      span: auto
+      label: Secret key
+      comment: The secret authorizes communication between your application backend and the reCAPTCHA server to verify the user's response.
+      default: ''
+      tab: Recaptcha
+    recaptcha_lang:
+      span: auto
+      label: Language
+      type: dropdown
+      comment: Forces the widget to render in a specific language. Auto-detects the user's language if unspecified.
+      tab: Recaptcha
+      options:
+        '': Auto-detect
+        ar: Arabic
+        bn: Bengali
+        bg: Bulgarian
+        ca: Catalan
+        zh-CN: Chinese (Simplified)
+        zh-TW: Chinese (Traditional)
+        hr: Croatian
+        cs: Czech
+        da: Danish
+        nl: Dutch
+        en-GB: English (UK)
+        en: English (US)
+        et: Estonian
+        fil: Filipino
+        fi: Finnish
+        fr: French
+        fr-CA: French (Canadian)
+        de: German
+        gu: Gujarati
+        de-AT: German (Austria)
+        de-CH: German (Switzerland)
+        el: Greek
+        iw: Hebrew
+        hi: Hindi
+        hu: Hungarain
+        id: Indonesian
+        it: Italian
+        ja: Japanese
+        kn: Kannada
+        ko: Korean
+        lv: Latvian
+        lt: Lithuanian
+        ms: Malay
+        ml: Malayalam
+        mr: Marathi
+        no: Norwegian
+        fa: Persian
+        pl: Polish
+        pt: Portuguese
+        pt-BR: Portuguese (Brazil)
+        pt-PT: Portuguese (Portugal)
+        ro: Romanian
+        ru: Russian
+        sr: Serbian
+        sk: Slovak
+        sl: Slovenian
+        es: Spanish
+        es-419: Spanish (Latin America)
+        sv: Swedish
+        ta: Tamil
+        te: Telugu
+        th: Thai
+        tr: Turkish
+        uk: Ukrainian
+        ur: Urdu
+        vi: Vietnamese
+    recaptcha_enabled:
+      label: is Enabled ?
+      type: switch
+      default: 0
+      span: auto
+      tab: Recaptcha
+
+    currency_symbol:
+      label: Symbole du devise
+      type: dropdown
+      default: ''
+      placeholder: '--'
+      options:
+        0: ''
+        EUR: 'Euro (€)'
+        USD: 'Dollar Américain ($)'
+        MAD: 'Dirham Marocain (DH)'
+      span: auto
+      tab: Divers
+
+    _btn_deploy_partial:
+      label: "Cliquez sur ce boutton pour déployer en production:"
+      span: full
+      type: partial
+      path: $/majormedia/toolbox/models/settings/_btn_deploy_partial_field.htm
+      tab: 'Déploiement'

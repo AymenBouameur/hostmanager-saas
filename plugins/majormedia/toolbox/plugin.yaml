@@ -1,0 +1,48 @@
+plugin:
+  name: "majormedia.toolbox::lang.plugin.name"
+  description: "majormedia.toolbox::lang.plugin.description"
+  author: "@MajorMedia"
+  icon: oc-icon-cogs
+  homepage: "https://majormedia.ma"
+navigation:
+  main-menu-messages:
+    label: Messages
+    url: majormedia/toolbox/messages
+    icon: icon-quote-right
+    iconSvg: /plugins/majormedia/toolbox/assets/images/icons/messages.svg
+    order: 1500
+  main-menu-dictionary:
+    label: Dictionnaire
+    url: majormedia/toolbox/cities
+    iconSvg: /plugins/majormedia/toolbox/assets/images/icons/book.svg
+    order: 1502
+    sideMenu:
+      side-menu-cities:
+        label: Villes
+        url: majormedia/toolbox/cities
+        iconSvg: /plugins/majormedia/toolbox/assets/images/icons/cities.png
+      side-menu-states:
+        label: Régions
+        url: majormedia/toolbox/states
+        iconSvg: /plugins/majormedia/toolbox/assets/images/icons/states.png
+      side-menu-countries:
+        label: Pays
+        url: majormedia/toolbox/countries
+        iconSvg: /plugins/majormedia/toolbox/assets/images/icons/countries.png
+  main-menu-newsletters:
+    label: Newsletters
+    url: majormedia/toolbox/newsletters
+    icon: icon-adn
+    iconSvg: /plugins/majormedia/toolbox/assets/images/icons/newsletter.png
+    order: 1501
+    sideMenu:
+      side-menu-newsletters:
+        label: Newsletters
+        url: majormedia/toolbox/newsletters
+        icon: icon-adn
+        iconSvg: /plugins/majormedia/toolbox/assets/images/icons/newsletter.png
+      side-menu-newslettercategories:
+        label: Catégories
+        url: majormedia/toolbox/newslettercategories
+        icon: icon-adn
+        iconSvg: /plugins/majormedia/toolbox/assets/images/icons/newslettercategory.png

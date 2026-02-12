@@ -1,0 +1,168 @@
+<div class="tab-properties">
+    <!-- Properties Stats Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="stat-card info">
+                <div class="stat-icon"><i class="icon-home"></i></div>
+                <div class="stat-value"><?= $properties['total_active'] ?></div>
+                <div class="stat-label">Biens actifs</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card warning">
+                <div class="stat-icon"><i class="icon-exclamation-triangle"></i></div>
+                <div class="stat-value"><?= count($properties['properties_without_bookings']) ?></div>
+                <div class="stat-label">Sans réservation (30j)</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card success">
+                <div class="stat-icon"><i class="icon-users"></i></div>
+                <div class="stat-value"><?= count($properties['properties_by_owner']) ?></div>
+                <div class="stat-label">Propriétaires</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Property Performance -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-trophy"></i> Performance des biens (Top 10)</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bien</th>
+                                <th class="text-right">Réservations</th>
+                                <th class="text-right">Revenus</th>
+                                <th class="text-right">Moy/Résa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($properties['property_performance'] as $index => $property): ?>
+                            <tr>
+                                <td><span class="rank-badge"><?= $index + 1 ?></span></td>
+                                <td><strong><?= e($property['title']) ?></strong></td>
+                                <td class="text-right"><?= $property['bookings'] ?></td>
+                                <td class="text-right"><strong><?= $property['revenue_formatted'] ?></strong></td>
+                                <td class="text-right">
+                                    <small><?= number_format($property['avg_per_booking'], 2, ',', ' ') ?> €</small>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($properties['property_performance'])): ?>
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">Aucune donnée disponible</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Properties by Owner -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-user"></i> Biens par propriétaire</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Propriétaire</th>
+                                <th class="text-right">Biens</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($properties['properties_by_owner'] as $owner): ?>
+                            <tr>
+                                <td>
+                                    <strong><?= e($owner['name']) ?></strong>
+                                    <br><small class="text-muted"><?= e($owner['email']) ?></small>
+                                </td>
+                                <td class="text-right">
+                                    <span class="badge badge-primary"><?= $owner['property_count'] ?></span>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($properties['properties_by_owner'])): ?>
+                            <tr>
+                                <td colspan="2" class="text-center text-muted">Aucune donnée disponible</td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Occupancy Rates -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icon-percent"></i> Taux d'occupation par bien</h5>
+                </div>
+                <div class="card-body">
+                    <?php foreach ($properties['occupancy_rates'] as $property): ?>
+                    <div class="occupancy-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span><?= e($property['title']) ?></span>
+                            <span class="font-weight-bold"><?= $property['occupancy_rate'] ?>%</span>
+                        </div>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar <?= $property['occupancy_rate'] >= 70 ? 'bg-success' : ($property['occupancy_rate'] >= 40 ? 'bg-warning' : 'bg-danger') ?>"
+                                 role="progressbar"
+                                 style="width: <?= $property['occupancy_rate'] ?>%"
+                                 aria-valuenow="<?= $property['occupancy_rate'] ?>"
+                                 aria-valuemin="0"
+                                 aria-valuemax="100">
+                            </div>
+                        </div>
+                        <small class="text-muted"><?= $property['booked_days'] ?> nuits sur <?= $property['total_days'] ?> jours</small>
+                    </div>
+                    <?php endforeach; ?>
+                    <?php if (empty($properties['occupancy_rates'])): ?>
+                    <p class="text-muted text-center">Aucune donnée disponible</p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Properties Without Bookings -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5><i class="icon-exclamation-triangle"></i> Sans réservation (30j)</h5>
+                </div>
+                <div class="card-body p-0">
+                    <?php if (empty($properties['properties_without_bookings'])): ?>
+                    <div class="text-center text-success py-4">
+                        <i class="icon-check-circle" style="font-size: 2rem;"></i>
+                        <p class="mt-2 mb-0">Tous les biens ont des réservations !</p>
+                    </div>
+                    <?php else: ?>
+                    <ul class="list-group list-group-flush">
+                        <?php foreach ($properties['properties_without_bookings'] as $property): ?>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><?= e($property['title']) ?></strong>
+                                <br><small class="text-muted"><?= e($property['owner']) ?></small>
+                            </div>
+                            <span class="badge badge-warning">Inactif</span>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

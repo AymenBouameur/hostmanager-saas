@@ -1,0 +1,10 @@
+name: Countries
+form: $/majormedia/toolbox/models/country/fields.yaml
+modelClass: MajorMedia\ToolBox\Models\Country
+defaultRedirect: majormedia/toolbox/countries
+create:
+  redirect: "majormedia/toolbox/countries/update/:id"
+  redirectClose: majormedia/toolbox/countries
+update:
+  redirect: majormedia/toolbox/countries
+  redirectClose: majormedia/toolbox/countries

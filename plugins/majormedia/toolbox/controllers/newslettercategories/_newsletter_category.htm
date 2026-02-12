@@ -1,0 +1,2 @@
+<?php $readOnly = isset($recordId) && !empty($recordId) ? true : false; ?>
+<?= $this->relationRender('newsletter_category', ['readOnly' => $readOnly]) ?>

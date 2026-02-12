@@ -1,0 +1,53 @@
+/* SearchBar autocomplete */
+.autocomplete-suggestions {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #dee2e6;
+  background: #fff;
+  cursor: default;
+  overflow: auto;
+  border-bottom-right-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.autocomplete-no-suggestion {
+  padding: 2px 5px;
+}
+
+.autocomplete-selected {
+  background: #f0f0f0;
+}
+
+.autocomplete-suggestions strong {
+  font-weight: bold;
+  color: #000;
+}
+
+.autocomplete-group {
+  padding: 2px 5px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+  display: block;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/*
+* Custom by Abdessalam@MajorMedia
+ */
+.autocomplete-group {
+  color: #999999;
+  text-transform: uppercase;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+.autocomplete-suggestion {
+  cursor: pointer;
+}

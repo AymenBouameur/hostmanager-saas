@@ -1,0 +1,24 @@
+columns:
+    id:
+        label: id
+        type: text
+    listing:
+        label: Property
+        relation: listing
+        select: title
+        type: text
+    invoice_number:
+        label: invoice_number
+        type: text
+    issued_date:
+        label: issued_date
+        type: text
+    
+    download_file:
+        label: Télécharger le fichier
+        type: partial
+        path: $/majormedia/listings/controllers/invoices/_download_file.htm
+    
+    updated_at:
+        label: Mis à jour le
+        type: datetime

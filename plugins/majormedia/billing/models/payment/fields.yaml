@@ -1,0 +1,67 @@
+fields:
+    company:
+        label: Company
+        type: relation
+        nameFrom: name
+        span: row
+        cssClass: col-lg-4
+    subscription:
+        label: Subscription
+        type: relation
+        nameFrom: id
+        span: row
+        cssClass: col-lg-4
+    payment_method:
+        label: Payment Method
+        type: relation
+        nameFrom: label
+        span: row
+        cssClass: col-lg-4
+    invoice_number:
+        label: Invoice Number
+        type: text
+        span: row
+        cssClass: col-lg-3
+    amount:
+        label: Amount
+        type: number
+        span: row
+        cssClass: col-lg-3
+    tax:
+        label: Tax
+        type: number
+        span: row
+        cssClass: col-lg-3
+    total:
+        label: Total
+        type: number
+        span: row
+        cssClass: col-lg-3
+    status:
+        label: Status
+        type: dropdown
+        span: row
+        cssClass: col-lg-3
+        options:
+            1: Pending
+            2: Paid
+            3: Failed
+            4: Refunded
+    billing_period_start:
+        label: Period Start
+        type: datepicker
+        mode: date
+        span: row
+        cssClass: col-lg-3
+    billing_period_end:
+        label: Period End
+        type: datepicker
+        mode: date
+        span: row
+        cssClass: col-lg-3
+    paid_at:
+        label: Paid At
+        type: datepicker
+        mode: datetime
+        span: row
+        cssClass: col-lg-3
