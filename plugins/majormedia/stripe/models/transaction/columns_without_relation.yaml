@@ -1,0 +1,17 @@
+columns:
+    id:
+        label: ID
+        type: text
+    ref:
+        label: Reference
+        type: text
+        searchable: true
+    amount:
+        label: Amount
+        type: text
+    paid:
+        label: Paid
+        type: switch
+    created_at:
+        label: Created
+        type: datetime

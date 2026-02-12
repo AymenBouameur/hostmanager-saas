@@ -1,0 +1,40 @@
+fields:
+    ref:
+        label: Reference
+        type: text
+        span: row
+        cssClass: col-lg-3
+    stripe_payment_intent_id:
+        label: Stripe Payment Intent
+        type: text
+        span: row
+        cssClass: col-lg-3
+        disabled: true
+    amount:
+        label: Amount
+        type: number
+        span: row
+        cssClass: col-lg-3
+    paid:
+        label: Paid
+        type: switch
+        span: row
+        cssClass: col-lg-3
+    company:
+        label: Company
+        type: relation
+        nameFrom: name
+        span: row
+        cssClass: col-lg-4
+    subscription:
+        label: Subscription
+        type: relation
+        nameFrom: id
+        span: row
+        cssClass: col-lg-4
+    is_active:
+        label: Active
+        type: switch
+        span: row
+        cssClass: col-lg-2
+        default: 1

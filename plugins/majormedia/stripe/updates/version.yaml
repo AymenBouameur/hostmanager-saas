@@ -1,0 +1,8 @@
+v1.0.1:
+    - "Initialize Stripe plugin for SaaS"
+1.0.2:
+    - "Add stripe_customer_id to backend_users table"
+    - add_stripe_customer_id_to_backend_users.php
+1.0.3:
+    - "Create transactions table"
+    - create_transactions_table.php

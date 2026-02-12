@@ -1,0 +1,8 @@
+<button
+    class="btn btn-primary oc-icon-refresh"
+    data-stripe-load-indicator
+    data-request-data='<?= "target: {$record->id}"?>'
+    <?php if($record->paid) echo 'disabled' ?>
+    data-request="onRetry">
+    Réssayer la transaction
+</button>

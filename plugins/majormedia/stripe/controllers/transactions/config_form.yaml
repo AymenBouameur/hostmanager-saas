@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Transaction
+
+# Model Form Field configuration
+form: $/majormedia/stripe/models/transaction/fields.yaml
+
+# Model Class name
+modelClass: Majormedia\Stripe\Models\Transaction
+
+# Default redirect location
+defaultRedirect: majormedia/stripe/transactions
+
+# Create page
+create:
+    title: Create Transaction
+    redirect: majormedia/stripe/transactions/update/:id
+    redirectClose: majormedia/stripe/transactions
+
+# Update page
+update:
+    title: Edit Transaction
+    redirect: majormedia/stripe/transactions
+    redirectClose: majormedia/stripe/transactions
+
+# Preview page
+preview:
+    title: Preview Transaction

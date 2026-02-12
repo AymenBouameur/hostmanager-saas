@@ -1,0 +1,29 @@
+columns:
+    id:
+        label: ID
+        type: text
+    ref:
+        label: Reference
+        type: text
+        searchable: true
+    company:
+        label: Company
+        type: text
+        relation: company
+        select: name
+        searchable: true
+    amount:
+        label: Amount
+        type: text
+    paid:
+        label: Paid
+        type: switch
+    stripe_payment_intent_id:
+        label: Stripe PI
+        type: text
+    is_active:
+        label: Active
+        type: switch
+    created_at:
+        label: Created
+        type: datetime

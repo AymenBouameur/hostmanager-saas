@@ -1,0 +1,6 @@
+plugin:
+    name: Stripe
+    description: Stripe payment integration for SaaS subscriptions
+    author: '@MAJORMEDIA'
+    icon: icon-cc-stripe
+    homepage: ''
