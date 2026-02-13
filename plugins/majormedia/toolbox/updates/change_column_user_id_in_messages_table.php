@@ -10,7 +10,7 @@ class ChangeColumnUserIdInMessagesTable extends Migration
     public function up()
     {
         Schema::table('majormedia_toolbox_messages', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable()->index('fk_user_id')->change();
+            $table->unsignedBigInteger('user_id')->nullable()->change();
         });
     }
 }
