@@ -55,6 +55,6 @@
 1.1.16:
     - "add new cities"
     - seed_cities.php
-1.0.17:
+1.1.17:
     - "Change Column User Id In Messages Table"
     - change_column_user_id_in_messages_table.php
