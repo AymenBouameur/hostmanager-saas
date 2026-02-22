@@ -1,54 +1,43 @@
 fields:
-    # Row 1: Identity — name, email, phone (3 equal cols)
+    # Row 1: Identity — name, email, phone, city (4 equal cols)
     name:
-        label: Name
+        label: Raison Sociale
         type: text
         span: row
-        cssClass: col-lg-4
+        cssClass: col-lg-3
     email:
         label: Email
         type: text
         span: row
-        cssClass: col-lg-4
+        cssClass: col-lg-3
     phone:
         label: Phone
         type: text
         span: row
-        cssClass: col-lg-4
-
-    # Row 2: Location — address (half), city + tax_id (quarter each)
-    address:
-        label: Address
-        type: textarea
-        size: small
-        span: row
-        cssClass: col-lg-6
+        cssClass: col-lg-3
     city:
         label: City
         type: relation
         nameFrom: name
         span: row
         cssClass: col-lg-3
+
+    # Row 2: Location — address (half) + tax_id (quarter each)
+    address:
+        label: Adresse
+        type: text
+        span: row
+        cssClass: col-lg-6
     tax_id:
-        label: Tax ID (SIRET/TVA)
+        label: (SIRET/TVA)
         type: text
         span: row
         cssClass: col-lg-3
-
-    # Row 3: Web & Brand — website + logo side by side
     website:
-        label: Website
+        label: Site web
         type: text
         span: row
-        cssClass: col-lg-6
-    logo:
-        label: Logo
-        type: fileupload
-        mode: image
-        imageHeight: 150
-        imageWidth: 150
-        span: row
-        cssClass: col-lg-6
+        cssClass: col-lg-3
 
     # Row 4: Flags — compact switches
     is_active:
@@ -66,6 +55,12 @@ fields:
 
 tabs:
     fields:
+        logo:
+            label: Logo
+            type: fileupload
+            mode: image
+            imageHeight: 150
+            imageWidth: 150
         listings:
             label: Listings
             type: partial
