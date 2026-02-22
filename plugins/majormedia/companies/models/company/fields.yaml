@@ -1,4 +1,5 @@
 fields:
+    # Row 1: Identity — name, email, phone (3 equal cols)
     name:
         label: Name
         type: text
@@ -14,6 +15,8 @@ fields:
         type: text
         span: row
         cssClass: col-lg-4
+
+    # Row 2: Location — address (half), city + tax_id (quarter each)
     address:
         label: Address
         type: textarea
@@ -31,17 +34,23 @@ fields:
         type: text
         span: row
         cssClass: col-lg-3
+
+    # Row 3: Web & Brand — website + logo side by side
     website:
         label: Website
         type: text
         span: row
-        cssClass: col-lg-4
+        cssClass: col-lg-6
     logo:
         label: Logo
         type: fileupload
         mode: image
+        imageHeight: 150
+        imageWidth: 150
         span: row
-        cssClass: col-lg-4
+        cssClass: col-lg-6
+
+    # Row 4: Flags — compact switches
     is_active:
         label: Active
         type: switch
