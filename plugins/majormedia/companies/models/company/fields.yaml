@@ -60,5 +60,5 @@ tabs:
         listings:
             label: Listings
             type: partial
-            path: $/majormedia/companies/controllers/companies/_listings.htm
+            path: $/majormedia/listings/config/_listings.htm
             tab: Listings
