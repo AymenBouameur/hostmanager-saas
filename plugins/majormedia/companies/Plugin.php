@@ -1,6 +1,5 @@
 <?php namespace MajorMedia\Companies;
 
-use Backend;
 use System\Classes\PluginBase;
 use Backend\Models\User as BackendUser;
 use MajorMedia\Listings\Models\Listing;
@@ -38,26 +37,4 @@ class Plugin extends PluginBase
         });
     }
 
-    public function registerNavigation()
-    {
-        return [
-            'companies' => [
-                'label'       => 'Companies',
-                'url'         => Backend::url('majormedia/companies/companies'),
-                'icon'        => 'icon-building',
-                'permissions' => ['majormedia.companies::companies.*'],
-                'order'       => 300,
-            ],
-        ];
-    }
-
-    public function registerPermissions()
-    {
-        return [
-            'majormedia.companies::companies.manage' => [
-                'tab'   => 'Companies',
-                'label' => 'Manage Companies'
-            ],
-        ];
-    }
 }

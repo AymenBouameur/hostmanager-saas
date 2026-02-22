@@ -1,0 +1,27 @@
+plugin:
+    name: Companies
+    description: Host management companies for SaaS
+    author: "@MajorMedia"
+    icon: icon-building
+    homepage: ""
+
+permissions:
+    majormedia.companies.manage:
+        tab: Companies
+        label: Gérer les entreprises
+
+navigation:
+    companies:
+        label: Entreprises
+        url: majormedia/companies/companies
+        icon: icon-building
+        order: 300
+        permissions:
+            - majormedia.companies.manage
+        sideMenu:
+            companies:
+                label: Entreprises
+                url: majormedia/companies/companies
+                icon: icon-building
+                permissions:
+                    - majormedia.companies.manage
